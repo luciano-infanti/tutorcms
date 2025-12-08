@@ -10,16 +10,21 @@ export default async function ProtectedLayout({
     const session = await getServerSession()
 
     if (!session) {
-        // If no session, redirect to login (or gate if we want to enforce that flow)
-        // For now, let's assume if they passed the gate but aren't logged in, they see a login prompt
-        // But this layout assumes they ARE logged in.
-        // We might need a client-side check or a redirect here.
-        // Let's redirect to a login page or back to root if we treat root as login.
-        // For simplicity, let's just render a "Please Sign In" state or redirect.
-        // redirect('/api/auth/signin') // Default NextAuth signin
-        // Or better, let's create a custom login page at /login if we want.
-        // But the user flow said: Gate -> Login -> Dashboard.
-        // So if they are here, they should be logged in.
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-zinc-950 text-zinc-100">
+                <div className="text-center space-y-6 p-8 bg-zinc-900 rounded-xl border border-zinc-800 shadow-2xl max-w-md w-full">
+                    <h1 className="text-2xl font-bold">Authentication Required</h1>
+                    <p className="text-zinc-400">You must sign in with your Google account to access the dashboard.</p>
+
+                    <a
+                        href="/api/auth/signin"
+                        className="block w-full py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-medium rounded-lg transition-colors"
+                    >
+                        Sign in with Google
+                    </a>
+                </div>
+            </div>
+        )
     }
 
     // We can pass the role to the sidebar
