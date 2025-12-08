@@ -13,6 +13,10 @@ const supabase = (supabaseUrl && supabaseKey)
 
 export const dynamic = 'force-dynamic'
 
+export async function GET() {
+    return NextResponse.json({ status: 'ok', message: 'Suggestions API is running' })
+}
+
 export async function POST(request: Request) {
     const session = await getServerSession()
 
