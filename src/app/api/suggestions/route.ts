@@ -11,6 +11,8 @@ const supabase = (supabaseUrl && supabaseKey)
     ? createClient(supabaseUrl, supabaseKey)
     : null as any
 
+export const dynamic = 'force-dynamic'
+
 export async function POST(request: Request) {
     const session = await getServerSession()
 
