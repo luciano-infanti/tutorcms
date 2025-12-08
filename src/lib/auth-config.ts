@@ -5,10 +5,14 @@ import { createClient } from '@supabase/supabase-js'
 import crypto from 'crypto'
 
 // Server-side Supabase client with admin privileges
-const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!
-)
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY
+
+// Server-side Supabase client with admin privileges
+// We use a lazy initialization or check to prevent build-time crashes if env vars are missing
+const supabase = (supabaseUrl && supabaseKey)
+    ? createClient(supabaseUrl, supabaseKey)
+    : null as any
 
 export const authOptions: NextAuthOptions = {
     providers: [

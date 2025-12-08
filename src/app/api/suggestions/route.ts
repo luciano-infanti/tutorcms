@@ -3,10 +3,13 @@ import { getServerSession } from '@/lib/auth'
 import { createClient } from '@supabase/supabase-js'
 
 // Server-side Supabase client
-const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!
-)
+// Server-side Supabase client
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY
+
+const supabase = (supabaseUrl && supabaseKey)
+    ? createClient(supabaseUrl, supabaseKey)
+    : null as any
 
 export async function POST(request: Request) {
     const session = await getServerSession()
@@ -20,6 +23,11 @@ export async function POST(request: Request) {
 
         if (!content) {
             return NextResponse.json({ error: 'Content is required' }, { status: 400 })
+        }
+
+        if (!supabase) {
+            console.error('Supabase client not initialized (missing env vars)')
+            return NextResponse.json({ error: 'Internal configuration error' }, { status: 500 })
         }
 
         // Get user ID from email
