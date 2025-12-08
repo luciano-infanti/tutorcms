@@ -3,6 +3,7 @@ export type UserRole = 'GM' | 'Senior Tutor' | 'Tutor';
 export const ROLES: Record<string, UserRole> = {
     // GMs
     'gm@example.com': 'GM',
+    'lucianoinfanti369@gmail.com': 'GM',
 
     // Senior Tutors
     'senior@example.com': 'Senior Tutor',

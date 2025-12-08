@@ -2,7 +2,8 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { LayoutDashboard, User, FileText, Shield, LogOut } from 'lucide-react'
+import { useSession } from 'next-auth/react'
+import { LayoutDashboard, User, FileText, Shield, LogOut, Lightbulb } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { signOut } from 'next-auth/react'
 
@@ -14,8 +15,10 @@ const navItems = [
 
 const adminItem = { name: 'Admin Panel', href: '/admin', icon: Shield }
 
-export function Sidebar({ userRole }: { userRole?: string }) {
+export function Sidebar() {
     const pathname = usePathname()
+    const { data: session } = useSession()
+    const userRole = (session?.user as any)?.role
     const isAdmin = userRole === 'GM'
 
     return (

@@ -42,9 +42,29 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  
+
+  /* Gemini Colors */
+  --color-gemini-bg: #131314;
+  --color-gemini-surface: #1E1F20;
+  --color-gemini-surfaceHighlight: #2D2E30;
+  --color-gemini-text: #E3E3E3;
+  --color-gemini-subtext: #9aa0a6;
+  --color-gemini-accent: #A8C7FA;
+  --color-gemini-blue: #4c8df6;
+  --color-gemini-border: #444746;
+
+  /* Light Colors */
+  --color-light-bg: #F0F4F9;
+  --color-light-surface: #FFFFFF;
+  --color-light-text: #1F1F1F;
+  --color-light-subtext: #444746;
+  --color-light-border: #E0E3E7;
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --shadow-soft: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+  --shadow-soft-hover: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
 }
 
 body {

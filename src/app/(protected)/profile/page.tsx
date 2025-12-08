@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useSession } from 'next-auth/react'
 import { User, Save } from 'lucide-react'
 
@@ -12,60 +12,105 @@ const SERVERS = [
 export default function ProfilePage() {
     const { data: session } = useSession()
     const [charName, setCharName] = useState('')
-    const [server, setServer] = useState(SERVERS[0])
+    const [server, setServer] = useState('Auroria')
     const [isSaving, setIsSaving] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
+
+    useEffect(() => {
+        const fetchProfile = async () => {
+            try {
+                const res = await fetch('/api/user/profile')
+                const data = await res.json()
+                setCharName(data.characterName || '')
+                setServer(data.server || 'Auroria')
+            } catch (error) {
+                console.error('Failed to fetch profile:', error)
+            } finally {
+                setIsLoading(false)
+            }
+        }
+
+        if (session) {
+            fetchProfile()
+        }
+    }, [session])
 
     const handleSave = async () => {
         setIsSaving(true)
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1000))
-        setIsSaving(false)
-        alert('Profile updated! (Simulation)')
+        try {
+            const res = await fetch('/api/user/profile', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ characterName: charName, server })
+            })
+
+            if (res.ok) {
+                alert('Profile updated successfully!')
+            } else {
+                const data = await res.json()
+                alert(data.error || 'Failed to update profile')
+            }
+        } catch (error) {
+            console.error('Save error:', error)
+            alert('Failed to update profile')
+        } finally {
+            setIsSaving(false)
+        }
+    }
+
+    if (isLoading) {
+        return (
+            <div className="max-w-2xl mx-auto space-y-8">
+                <div className="text-center py-12 text-zinc-500">Loading profile...</div>
+            </div>
+        )
     }
 
     return (
-        <div className="max-w-2xl mx-auto space-y-8">
-            <div>
-                <h1 className="text-3xl font-bold text-white">Profile Settings</h1>
-                <p className="text-zinc-400">Manage your tutor identity.</p>
+        <div className="max-w-2xl mx-auto space-y-8 pt-4">
+            <div className="animate-fade-in-up">
+                <h1 className="text-3xl font-bold text-light-text dark:text-gemini-text">Profile Settings</h1>
+                <p className="text-light-subtext dark:text-gemini-subtext">Manage your tutor identity.</p>
             </div>
 
-            <div className="bg-zinc-900 rounded-xl border border-zinc-800 p-6 space-y-6">
-                <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 bg-zinc-800 rounded-full flex items-center justify-center">
-                        {session?.user?.image ? (
-                            <img src={session.user.image} alt="Avatar" className="w-full h-full rounded-full" />
-                        ) : (
-                            <User className="w-8 h-8 text-zinc-500" />
-                        )}
+            <div className="bg-white dark:bg-gemini-surface rounded-[24px] border border-light-border dark:border-gemini-surfaceHighlight p-6 sm:p-8 space-y-8 shadow-sm">
+                <div className="flex items-center gap-5">
+                    <div className="w-20 h-20 rounded-full p-[2px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+                        <div className="w-full h-full rounded-full bg-white dark:bg-gemini-surface overflow-hidden flex items-center justify-center">
+                            {session?.user?.image ? (
+                                <img src={session.user.image} alt="Avatar" className="w-full h-full object-cover" />
+                            ) : (
+                                <User className="w-8 h-8 text-gray-400" />
+                            )}
+                        </div>
                     </div>
                     <div>
-                        <h3 className="font-medium text-white">{session?.user?.name || 'User'}</h3>
-                        <p className="text-sm text-zinc-500">{session?.user?.email}</p>
-                        <span className="inline-block mt-2 px-2 py-1 bg-indigo-500/10 text-indigo-400 text-xs rounded">
+                        <h3 className="text-xl font-semibold text-light-text dark:text-gemini-text">{session?.user?.name || 'User'}</h3>
+                        <p className="text-light-subtext dark:text-gemini-subtext">{session?.user?.email}</p>
+                        <span className="inline-block mt-2 px-2.5 py-0.5 bg-indigo-50/50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-medium rounded-full border border-indigo-100 dark:border-indigo-500/20">
                             {(session?.user as any)?.role || 'Tutor'}
                         </span>
                     </div>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-5">
                     <div>
-                        <label className="block text-sm font-medium text-zinc-400 mb-1">Character Name</label>
+                        <label className="block text-sm font-medium text-light-subtext dark:text-gemini-subtext mb-1.5">Character Name</label>
                         <input
                             type="text"
                             value={charName}
                             onChange={(e) => setCharName(e.target.value)}
                             placeholder="e.g. GM Thais"
-                            className="w-full px-4 py-2 bg-zinc-950 border border-zinc-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                            className="w-full px-4 py-3 bg-gray-50 dark:bg-gemini-bg border border-light-border dark:border-gemini-surfaceHighlight rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-light-text dark:text-gemini-text transition-all"
                         />
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-zinc-400 mb-1">Server</label>
+                        <label className="block text-sm font-medium text-light-subtext dark:text-gemini-subtext mb-1.5">Server</label>
                         <select
                             value={server}
                             onChange={(e) => setServer(e.target.value)}
-                            className="w-full px-4 py-2 bg-zinc-950 border border-zinc-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                            className="w-full px-4 py-3 bg-gray-50 dark:bg-gemini-bg border border-light-border dark:border-gemini-surfaceHighlight rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-light-text dark:text-gemini-text transition-all appearance-none"
                         >
                             {SERVERS.map(s => (
                                 <option key={s} value={s}>{s}</option>
@@ -74,11 +119,11 @@ export default function ProfilePage() {
                     </div>
                 </div>
 
-                <div className="pt-4 border-t border-zinc-800 flex justify-end">
+                <div className="pt-6 border-t border-light-border dark:border-gemini-surfaceHighlight flex justify-end">
                     <button
                         onClick={handleSave}
                         disabled={isSaving}
-                        className="flex items-center gap-2 px-6 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg transition-colors disabled:opacity-50"
+                        className="flex items-center gap-2 px-6 py-2.5 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-medium transition-all shadow-sm hover:shadow-md disabled:opacity-50 disabled:shadow-none"
                     >
                         <Save className="w-4 h-4" />
                         {isSaving ? 'Saving...' : 'Save Changes'}
