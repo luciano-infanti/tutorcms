@@ -1,0 +1,1910 @@
+[
+  {
+    "category": "APRESENTAÇÃO NOVOS TUTORES",
+    "question": "Link apresentação",
+    "answer": "Rubinot - Apresentaco Novos Tutores 2025.pdf (https://drive.google.com/file/d/1cHmIdEsvXiY2FT_s2tv89TFAvSSGW5ES/view?usp=sharing)",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Winter Update 2025 - EM CONSTRUÇÃO",
+    "question": "Bounty Tasks",
+    "answer": "Pode ser escolhido uma criatura por vez. Ao finalizar, receberá exp, reroll tokens e pontos para aprimorar bônus como dano, loot, life leach e % de duplicar o bestiário. Note que é necessário equipar o bounty talisman para fazer uso dos aprimoramentos.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Winter Update 2025 - EM CONSTRUÇÃO",
+    "question": "Bounty Task Melhorada",
+    "answer": "Existe uma probabilidade de sua Bounty Task ter um bônus adicional, sendo Prata ou Ouro. Prata: 2x Exp e Bounty Points. Ouro: 4x Exp e Bounty Points",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Winter Update 2025 - EM CONSTRUÇÃO",
+    "question": "Bounty Talisman",
+    "answer": "Pode ser obtido em qualquer NPC de valuables pelo preço de 5.000gps. Necessário equipar no slot de \"Trinket\" para ter o efeito na criatura escolhida da bounty task. Ele fornece bônus permanentes e cumulativos contra as criaturas da sua tarefa atual",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Winter Update 2025 - EM CONSTRUÇÃO",
+    "question": "Weekly Tasks",
+    "answer": "São tasks semanais de mobs e itens que resetam no SS de toda segunda-feira. Ao completar, você irá receber: EXP, bounty points que podem ser trocados na nova loja de tasks, além de Soulseals, que são pontos utilizados para fazer a Soul Pit Arena solo.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Winter Update 2025 - EM CONSTRUÇÃO",
+    "question": "Soulseals",
+    "answer": "O custo varia entre 10 e 60 Soulseals, dependendo da dificuldade selecionada (Harmless, Trivial, Easy, Medium, Hard e Challenging). Interaja com o Obelisco dentro do Soulpit (clique nele com o mouse, selecione use with e clique no seu personagem).",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Winter Update 2025 - EM CONSTRUÇÃO",
+    "question": "Order Of The Stag",
+    "answer": "A quest Order Of The Stag se inicia no kesar durante o dia (xx:15 até xx:45) diga hi - help (precisa ter matado o drume e reportar antes pro kesar pra finalizar a quest order of the lion), depois disso só seguir a quest",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Winter Update 2025 - EM CONSTRUÇÃO",
+    "question": "Night Harpys",
+    "answer": "As raids das Night Harpys só acontecem durante a noite (xx:45 até xx:15), porém não ocorrem em todas a noites",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Winter Update 2025 - EM CONSTRUÇÃO",
+    "question": "Beaks",
+    "answer": "Não adianta comprar Beaks de outros players, você precisa skinnar as night harpys pra conseguir o questlog",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Winter Update 2025 - EM CONSTRUÇÃO",
+    "question": "Royal Bounacean - Addon",
+    "answer": "Para conseguir o addon 2 da Royal Bounacean advisor outfit precisa matar o boss final, reportar para o eldoran e em seguida reportar para o kesar (durante o dia).",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Winter Update 2025 - EM CONSTRUÇÃO",
+    "question": "Missao supplies for the steadfast - Order of the stag",
+    "answer": "No NPC \"Lieutenant Harlan\" diga em ordem: hi - get here - no - no - no - yes - Captain harlan herald - yes",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Winter Update 2025 - EM CONSTRUÇÃO",
+    "question": "Battle - Attack First Target",
+    "answer": "Config > Controls > General Hotkeys > Pesquise por \"Attack First Target\" > Escolha a hotkey",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Winter Update 2025 - EM CONSTRUÇÃO",
+    "question": "Botão Hunting Tasks não aparece",
+    "answer": "Caso o ícone das hunting tasks não estejam aparecendo você precisa ir em: Configurações > Interface > Control Buttons > Clicar em reset.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Halloween 2025",
+    "question": "Ícone de missões diárias",
+    "answer": "Caso o ícone das missões diárias não esteja aparecendo ir em config > interface > control buttos e adicionar mais ícones até ficar com 4 linhas de ícone",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Halloween 2025",
+    "question": "Acesse a wiki",
+    "answer": "Acompanhe todas as informações pela wiki > https://wiki.rubinot.com/pt-BR/eventos-anuais/halloween-2025",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Halloween 2025",
+    "question": "Onde comprar os itens",
+    "answer": "O NPC Gravemonger vende os itens para as missões do NPC Van Rubelsing no cemitério ao norte de thais > https://wiki.rubinot.com/pt-BR/eventos-anuais/halloween-2025#halloween-bargain",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "HUNTS / HUNT FINDER",
+    "question": "Sugestão de hunts / Hunting Finder",
+    "answer": "Para encontrar opções de hunts, use o \"HuntFinder\" do nosso cliente RTC. Ele sugere locais por level, solo/party, equipamentos, média de XP/Gold por hora e mostra o caminho no mapa. Veja mais em: https://wiki.rubinot.com/pt-BR/huntfinder",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "PASSE DE BATALHA",
+    "question": "Sistema Reroll",
+    "answer": "O sistema de reroll da missão diária está temporariamente indisponível para utilização e logo estará disponível",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "PASSE DE BATALHA",
+    "question": "O que é o passe",
+    "answer": "O passe de batalha (exclusivo do RTC) é um sistema de recompensas que consiste em agrupado de missões que ao serem concluídas renderão pontos e, quanto mais pontos um personagem tiver, mais recompensas poderá obter.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "PASSE DE BATALHA",
+    "question": "Passe Deluxe",
+    "answer": "Caso queira acesso a mais recompensas do passe de batalha basta comprar o passe deluxe na store por 1290 coins (990 coins nos dias 11/06 e 12/06)",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "PASSE DE BATALHA",
+    "question": "Missão de distance/Master of Arms",
+    "answer": "Na missão \"Master of Arms\", veja a descrição. Distance weapon = spear/stars. Ammo weapon = bow/crossbow.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "PASSE DE BATALHA",
+    "question": "Rookar char com passe",
+    "answer": "O battlepass está disponível apenas para chares com vocação, então ao ser rookado o char ele perderá seu passe de batalha.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "NOVA VOCAÇÃO - MONK",
+    "question": "Lançamento",
+    "answer": "O Monk foi lançado em 16/04, quarta-feira. Para isso tivemos um server save mais cedo as 9h da manhã para implementação.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "NOVA VOCAÇÃO - MONK",
+    "question": "Rookar o char",
+    "answer": "Agora é possível rookar seu personagem, serão mantidos apenas os charm points, bestiarios, bosstiarios, prey wildcards, outfits e montarias da store. Todo o resto será deletado do personagem. como a Loot Pouch e Linked Tasks.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "NOVA VOCAÇÃO - MONK",
+    "question": "The Way of the Monk",
+    "answer": "A quest The Way of the Monk irá fornecer 10 pontos na roda de habilidades para todos os chares de qualquer vocação que terminarem ela.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "WORLD TRANSFERS - NOVAS TRANSFERS",
+    "question": "Como funciona?",
+    "answer": "Veja todas as informações sobre transferências de mundos em nossa Wiki: https://wiki.rubinot.com/pt-BR/world-transfer",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "AVISOS / CONFIG / INVASÕES",
+    "question": "Advertising",
+    "answer": "Anúncios de Compra / Venda / Troca / Live / Recrutamento de Guilds deverão ser feitos no Advertising",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "AVISOS / CONFIG / INVASÕES",
+    "question": "Blesses Stack",
+    "answer": "O limite de blesses stackadas são 5.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "AVISOS / CONFIG / INVASÕES",
+    "question": "Cooldown Obelisk",
+    "answer": "O Obelisk é um sistema de compensação. Serve pra resetar os CD dos Bosses mortos nos últimos 30min de quem utilizar, só aparece após uma queda ou crash ocasionado pelo server, surge em todos os templos e tem um horário indeterminado.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "AVISOS / CONFIG / INVASÕES",
+    "question": "Deixar com Follow",
+    "answer": "Pra deixar com follow é só ir em: Configurações > Misc > Gameplay > Desativa o \"Auto Chase Off",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "AVISOS / CONFIG / INVASÕES",
+    "question": "Emote Spell",
+    "answer": "Aqui não tem o sistema de Emote Spell. Você pode tirar as spells dos outros nas configurações > interface > game window > desativar o \"show spells of others\" e se quiser tirar as suas, desabilitar o \"show spells\".",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "AVISOS / CONFIG / INVASÕES",
+    "question": "FPS",
+    "answer": "O comando \"!fps\" foi desabilitado pois todos os servers agora só conectam através do client RTC, que é otimizado para não sofrer problemas com cache.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "AVISOS / CONFIG / INVASÕES",
+    "question": "Help",
+    "answer": "Por favor, utilize o HELP apenas para dúvidas. Evite o mute desnecessário.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "AVISOS / CONFIG / INVASÕES",
+    "question": "Lag / Kicks / Travamentos",
+    "answer": "Qualquer problema de Lag, Kicks, Rota, por gentileza direcionar diretamente ao sistema de ticket no site. Se houve mortes é onde podem ver se há ou não motivo de compensação. O help é apenas para dúvidas.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "AVISOS / CONFIG / INVASÕES",
+    "question": "Loot Pix",
+    "answer": "Os Bosses Ghazbaran, Orshabaal e Morgaroth dropam Ticket de PIX, além do loot que já pode vir normalmente.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "AVISOS / CONFIG / INVASÕES",
+    "question": "Novas Regras / 2c",
+    "answer": "É proibido a utilização de Cavebots. Na utilização de MCs apenas um fora do PZ, e é proibido a utilização de macros de mwall.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "AVISOS / CONFIG / INVASÕES",
+    "question": "Raids / Invasões / Invasoes",
+    "answer": "As raids no servidor agora ocorrem de forma totalmente aleatória, assim como ocorre no global. Apenas o Gaz'Haragoth continua aparecendo nos dias 01 e 15, e a Feroxa nos dias 13.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "AVISOS / CONFIG / INVASÕES",
+    "question": "Links Externos no WC",
+    "answer": "Não é permitido o envio de links externos nos canais oficiais do servidor.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "AVISOS / CONFIG / INVASÕES",
+    "question": "Vendas RL",
+    "answer": "O servidor não tolera nenhum tipo de anúncio para compras/vendas RL através dos canais dentro do jogo.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "AVISOS / CONFIG / INVASÕES",
+    "question": "Exportar 15 / Importar RTC",
+    "answer": "Exportar/Importar Config RTC - Para exportar vá em configurações > controls > export all options. Para importar precisa estar deslogado > configurações > controls > Import Rubinot 13 config.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Recovery Key",
+    "answer": "Recovery Key custa 50RC e é adquirida diretamente pela conta no site.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Aniversário RubinOT",
+    "answer": "A data de aniversário do Rubinot é dia 17 de abril, sendo o primeiro servidor o Bellum, criado em 17 de abril de 2023.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "VIP List",
+    "answer": "A VIP List é vinculada à conta, ou seja, todos os personagens da mesma conta e mundo compartilham a mesma lista de VIP.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Abrir conversa private direto",
+    "answer": "Vá em Options > Interface > Console > Open New Tab When Receiving Private Messages.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Abrir Ticket",
+    "answer": "Ao acessar sua conta no site https://rubinot.com.br em 'My Account', você poderá abrir seu ticket com a categoria correta e sua descrição.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Acesso Stonerefiner",
+    "answer": "Para acessar os Stonerefiner, no primeiro NPC: Hi - Help - Yes. Ao chegar no segundo NPC: hi - decreasing resources - defy - yes",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Acúmulo de Crítico",
+    "answer": "Apenas o DANO irá acumular. A única porcentagem de crítico que será combada é com os 3% a mais de crítico oferecido pela VIP, caso tenha.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Alugar Dummy",
+    "answer": "É permitido alugar Dummy, porém não nos responsabilizamos pela utilização do mesmo.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Autenticação",
+    "answer": "É muito importante o uso da autenticação de dois fatores, a equipe não se responsabiliza por roubos ou hacks -> rubinot.com.br/?auth",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Blesses",
+    "answer": "Blesses são feitas na INQ em Thais - NPC Julio Skeletinho (não precisa da INQ completa). Não VIPs recebem 5 Bless (para as outras 2, ir em Svar e PH). VIPs recebem as 7.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "BOT AFK",
+    "answer": "É estritamente proibido o uso de automações 100% AFK nos locais de caça. Porém, são permitidas automações para treinamento (exercise weapons, trainer online, ML).",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Char não cata Loot",
+    "answer": "Clica com o botão direito do mouse na sua bp, e em Manage Containers, a coluna da esquerda onde está escrito 'Unassigned' clica no botão da direita dele 'Crosshair' e seleciona sua bp principal, ou uma bp de loot.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Char não muda outfit",
+    "answer": "Se você não puder alterar o Outfit, desmarque a opção de Mount. Customise Character > Configure > Desmarque Mount > Ok",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Chests (Decoração house)",
+    "answer": "As Chests Royal's, Elite's, Elder's e Master's são itens de decorações de house, são baús com sprites de cada vocação possuindo um \"Vol:40\".",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Comando Rubinot",
+    "answer": "Novos jogadores podem utilizar o comando - !rubinot - e receber uma Exercise Weapon e Prey Wild Cards (a partir do lvl 20).",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Como tirar Bleeding",
+    "answer": "Caso você seja ED ou EK, use a magia exana kor. Se não for, você pedir para um NPC do Templo te curar, esperar o efeito sair ou comer um Hydra Tongue Salad.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Cooldown de Bosses",
+    "answer": "Você pode ir no icone de gráfico Analytics > Boss Cooldowns e também pelo icone Bosstiary Tracker",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Dar Sugestões",
+    "answer": "Para dar Sugestões use o sistema de Tickets no site oficial, por favor. Em 'My account'.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Delete de char/Reutilizar nick",
+    "answer": "O tempo do char ser deletado totalmente estima-se 30 dias. Para o efeito de mudança de nickname, deve-se esperar a total exclusão do personagem, estimado no tempo de 30 dias.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Donate",
+    "answer": "Utilize o comando \"!donate CPF\" para gerar um QR code de doação em qualquer lugar do jogo. Não esqueça de colocar apenas os números do CPF após o comando",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Dummy",
+    "answer": "Só é possivel o uso de até 5 players ao mesmo tempo. Não é possivel colocar seu dummy na house de um amigo. Dummy's de house oferecem 10% a mais de aumento na skill. O Dummy é intransferível.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Dwarven Legs Quest",
+    "answer": "Para que ela seja realizada, será necessário seguir o seu spoiler por completo.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Estou com Bless",
+    "answer": "Acima do seu colar, existe uma pequena cruz ao lado do botão de 'menos', Amarelo: 5 Blesses / Verde: 7 Blesses / Cinza: 0 Blesses.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Evento Exaltation Overload",
+    "answer": "Todos os jogadores, independentemente do seu equipamento, receberão pelo menos os efeitos dos itens Tier 2 (Onslaught: 1.05%, Ruse: 1.03%, Momentum: 4.05%, Transcendence: 0.27%, Amplification: 5.40%). Esses números são adicionados aos já existentes.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Eventos",
+    "answer": "Todos os eventos são anunciados pelo Discord: discord.gg/rubini, através do Instagram: @rubinot.global e através do calendário: https://rubinot.com.br/?subtopic=eventcalendar",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Exercise Present",
+    "answer": "Ao utilizar este item, você irá selecionar a exercise desejada com a quantidade de 14k.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Exp Boost",
+    "answer": "Não irá gastar caso o player não esteja ganhando EXP. É possível acumular até 2 horas",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Familiar Figurine",
+    "answer": "É necessário matar o Ratmiral e reportar para o NPC Tik'hi Tak'he. Após, a Pirate's Tail vai ficar completa. Feito isso, você precisa fazer a Jangada em Rascaccon. (The Trekkie's Journey) - Não esqueça da Cheese Key para poder abrir o baú após ao final.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Flask of Rust Remover",
+    "answer": "Para comprar Flask of Rust Remover não é necessário ter a quest para fazer as transações com o NPC Harog.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Foods Infinitos",
+    "answer": "Confira todas as foods infinitas em nossa wiki: https://wiki.rubinot.com/pt-BR/foods",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Forja",
+    "answer": "Você pode aprender sobre a forja nesse compilado aqui: https://drive.google.com/file/d/1Vjr0aU47h5ZvGoOPY9tJB03eV5RWHpH0/view (ENVIAR O LINK SOMENTE VIA PRIVADO)",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Frag Remover/red skull",
+    "answer": "O \"frag remover\" pode ser obtido pelo NPC Castle Merchant localizado no templo de Thais. Este item irá remover sua skull e seus frags, sua utilização deve ser feita dentro do pz e tem um cooldown de 7 dias.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Jean Pierre",
+    "answer": "O Jean Pierre ficou permanente no servidor desde o inicio, agora vira somente no evento do ano que vem em seguinte. Não tera mais esse ano.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Fury Gate",
+    "answer": "É necessário verificar o andamento da world change do Fury Gate pelo mural de world changes na adventurers guild (próximo ao npc Charos)",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Gift Of Life CD",
+    "answer": "Para conferir o Cooldown da Gift of Life basta adicionar o gift na Action Bar > Clique direito e 'Assign Passive Ability'",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Gem Atelier",
+    "answer": "Faz parte do Gem Atelier (localizado no mesmo lugar que a Roda de Habilidades), recomendo esse link pra aprender mais: https://www.youtube.com/watch?v=24OOudjgfNk&t=4s (ENVIAR O LINK SOMENTE VIA PRIVADO)",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Horário no jogo",
+    "answer": "O dia começa às xx:15 e vai até xx:45. Das xx:45 até xx:15 é noite no jogo.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Houses",
+    "answer": "NÃO ocorre de forma instantânea. Logo, toda compra ou venda ou transferência, precisa esperar o SS.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Inserir botões abaixo da Store",
+    "answer": "Vá para: options > interface > control buttons e selecione quais deseja que apareça.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Daily reward",
+    "answer": "Caso não esteja conseguindo pegar sua recompensa diária de qualquer lugar quer dizer que seus Instant Reward Access se acabaram e você precisa pegar pelo reward shrine nos DPs ou Templos em qualquer cidade.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Instant Reward Access",
+    "answer": "Ela poderá ser obtida via Store. Para achar, basta ir na categoria \"Extra > Useful Things\" ou pesquisar diretamente pelo seu nome.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Itens locker",
+    "answer": "São itens obtidos na roleta, são Depots para house.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Key Intihuatac",
+    "answer": "Caso você perca sua Key Intihuatac é possível recomeçar a missão de fazê-la no NPC Sandomo (onde se inicia a quest). Basta dizer Hi - Lost para receber a primeira parte novamente e poder coletar as outras partes nos locais da quest",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Liquid Dust",
+    "answer": "Este item serve para preencher todos os slots de dust (poeira) referente a forja.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Lit Torch / Canivete",
+    "answer": "Quests que precisam de ferramenta que está no canivete não funcionam. É necessario comprar Kitchen Knife. Seja a quest da Lit Torch, ou limpar os espelhos na quest de Issavi/Kilmaresh",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Loot Pouch",
+    "answer": "A LootPouch irá pegar todo o seu loot. Não precisa ser VIP. Após comprar, selecione ela em todos os slots de categorias de loot na configuração do Manage Loot Container e dê o comando - !autoloot - para ativá-la.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Loot Pouch PT",
+    "answer": "O loot sempre vai pro líder da PT. Caso o líder esteja fora da tela do bicho que morreu, o loot vai pra quem fragou. Se quem fragou não tiver pouch, o loot fica no corpo.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Mystic Bag",
+    "answer": "Usar uma Mystic Bag lhe da a chance de pegar desde uma Focus Cape até os itens Best in Slot (BiS).",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Acesso Oramond",
+    "answer": "Com a implementação das tasks de Oramond, o portal será acessível apenas para aqueles que estiverem na quest Four Demanding Statues da Oramond Quest.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Old Sprite",
+    "answer": "Para ativar, utilize o comando !sprite. Lembre-se que se você não for da vocação referente a sprite, será inutilizável e não haverá trocas.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Potions amplification/resilience",
+    "answer": "A amplification/resilience duram por 1 hora e o tempo restante após uso pode ser visto na cyclopedia > character general stats > misc stats. Amplification aumenta 8% seu ataque contra monstros e Resilience protege 8%.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Prey Card",
+    "answer": "O limite é de 64 Prey Cards. Se pegar reward de Prey Card no Daily tendo 64 no char, as cartas não serão adicionadas no seu personagem, porém, é possível passar este limite com recompensas de task e castle box.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Preys",
+    "answer": "As preys de Ataque e Defesa gastam nos Monk Trainer.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Proficiência por monstro",
+    "answer": "Exp por kill de monstro de acordo com o bestiário > Harmless 1 / Trivial 30 / Easy 70 / Medium 100 / Hard 165 / Challenging 240. Para bosses segue > Bane 500 / Archfoe 5k / Nemesis 15k. VIPs ganham 10% a mais de experiência",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Proficiência das armas",
+    "answer": "Agora os monstros mortos também dão experiência para sua arma. Para receber a experiência em sua arma basta dar um hit (igual bestiário) e estar com ela equipada no momento da morte do monstro.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Promotion",
+    "answer": "Para pegar a Promotion vá até o castelo de Thais ou Carlin, diga hail king (Thais) ou hail queen (Carlin) depois: promotion - yes",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Promotion Scroll",
+    "answer": "Os Promotion Scroll vão te dar alguns pontos pra serem usados na Roda de Habilidades, pode usar uma vez apenas. Existem 5 scrolls diferentes, com pontos diferentes.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Party/Raw Exp",
+    "answer": "Antigamente a raw exp nos analysers apresentavam um multiplicador que não deveria existir e era um bug puramente visual, a raw exp está correta e a exp em party também.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Qual treino é melhor",
+    "answer": "Nessa ordem aqui: Treino com sistema de Varinhas > Treino online > Treino offline.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Quick Loot",
+    "answer": "O Quick Loot, pode ser utilizado gratuitamente, ele vai pegar o loot das criaturas 8 quadrados em volta do seu personagem, por padrão a tecla de atalho é a Alt+q",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Recuperar Soul",
+    "answer": "Os Soul Points recuperam apenas nas PZ. Eles não recuperam nos trainers online.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Registro da ACC/Provincia",
+    "answer": "Basta remover o tradutor automático do site.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Report BOT/MC",
+    "answer": "Para reportar BOT/MC - CTRL + botão direito do mouse em cima do personagem a receber a verificação - Report BOT/Macro.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Reportar BUGS",
+    "answer": "Para reportar Bugs use o sistema de Tickets no site https://rubinot.com.br em 'My Account', lá você poderá abrir seu ticket com a categoria correta e sua descrição.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Roda de habilidade",
+    "answer": "Para utilizar, basta comprar a promotion no King ou Queen. A partir do level 50 você acumula pontos para poder inserir na roda. Toda vez que você morrer e perder level, apenas as perks irão regredir de acordo com os pontos que você perdeu.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Roletas",
+    "answer": "As Roletas se encontram nos TP nos diversos templos, e no DP de Thais. Veja mais em https://wiki.rubinot.com/pt-BR/roleta",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Rubini Coin",
+    "answer": "Rubini Coins são negociadas de 25 em 25, se tiver menos que 25 não serão negociadas.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Rubini Coin por TC",
+    "answer": "Estão desativadas as trocas entre RC por TC por tempo indeterminado.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Rubini Coin Server EU",
+    "answer": "A Rubini Coin do servidor europeu não irá funcionar no sistema Multiworld dos servers SA.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Runas da BP de Aniversário de 1 ano",
+    "answer": "Celestius Rune, Glacialon Rune, Infernatus Rune, Necroshade Rune, Terramorfo Rune e Voltagor Rune. As Runas só podem ser utilizadas uma unica vez, depois de usada vira item de decoração. Pode conferir se já foi usada dando look nela.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Sistema de títulos ao dar look no char",
+    "answer": "Os achievements que vocês ganharam são do nosso novo sistema de títulos. Botão cyclopedia > character > character titles.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Soft Boots",
+    "answer": "A Soft Boots tem um regen de 2x comparado ao Global. Pode ser recarregada por 10k no NPC Aldo em Venore.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Sparkles",
+    "answer": "Os itens nomeados \"Sparkles\" obtidos na Roulette são apenas decoração de house, possuindo um total de 4 variações: Mystic, Magical, Special e Divine.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Spear",
+    "answer": "Apenas as Spears, Royal Spear e Enchanted Spears não acabam. Já as Glooth Spear e as Hunting Spear são finitas e quebram.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Stamina",
+    "answer": "Orange: 3m offline, 1 stamina. 6m atacando trainer, 1 stamina, 3m em pz, 1 stamina. | Green: 6m offline, 1 stamina. 6m atacando trainer, 1 stamina. 5m em pz, 1 stamina.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Stamina (TUTOR WIKI)",
+    "answer": "Todas as informações sobre a Stamina se encontram em - https://rubinot.com.br/?subtopic=serverinfo",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Stamina Extension",
+    "answer": "A Stamina Extension recupera 1 hora de stamina perdida. Seu cooldown de uso é 20 horas.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Supreme Cube",
+    "answer": "Para teleportar para dimensão dentro do cubo, usado como tp pra sair de lugares difícies ou longínquos. Te leva a ilha de Gray Island. E tem CD de 2horas.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Varinhas Castle Merchant",
+    "answer": "As varinhas do Castle Merchant são de 14.4k de cargas.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Tempo Varinha",
+    "answer": "Varinhas: VIP: 5k Cargas = 2h30 - 14k Cargas = 7h - 45k Cargas = 22h30 | Free: 5k Cargas = 2h45 - 14k Cargas = 7h30 - 45k Cargas = 24h45",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Trainers",
+    "answer": "Os Trainers Online estão na Adventurers Guild no norte do andar principal. Para ficar ativo, basta atacar os trainers. Caso queira sair da room dos Skeleton Target's, ande diagonal sul esquerda. Preys de Atq e Def, imbuiments são consumidos.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Trainers - Kick - Afk",
+    "answer": "Treinar sem tomar kick - Deixa o Mana Training e a opção \"Auto eat food\" ligadas. Desliga o RTCaster e o Auto Target. Targeta manualmente o Skeleton Target. Personagem não será desconectado.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Transfer",
+    "answer": "Você deve prosseguir até o barco de Thais e pedir passagem para Travora, na Store clicar em World Transfer (490RC), certifique-se de seguir todas as obrigações. A transferência é imediata. Todos os seus itens te acompanham.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Trap Red",
+    "answer": "É permitido realizar trap red no servidor, a única ressalva é quando o player utilizar MCs para realizá-la. Trapar Bosses/Acessos/Quests: É permitido realizar traps de acessos e quests desde que o jogador não esteja utilizando-se de MCs",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Vender Golden Mug",
+    "answer": "O NPC Elias Tibiano compra normalmente. Basta tirar a água de dentro da Golden Mug. Para fazer isso, dê use e jogue a água no chão.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Vender Loot",
+    "answer": "Todo o seu loot pode ser vendido no NPC Elias Tibiano, no -1 do DP de Thais ou no térreo da Adventurer's Guild. Anéis e Amuletos podem ser comprados nos Djinns. O acesso é liberado",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "VIP Scroll",
+    "answer": "A VIP Scroll obtida na Roullet apenas adiciona um tempo de 30 dias VIP em sua conta, contabilizando 1 ponto de Loyalty.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "Walker montaria",
+    "answer": "O walker se encontra no último andar inferior da glooth factory a direita, para obter acesso é necessário falar com o NPC Strange Pipe (hi - importance) que se encontra a esquerda da porta selada.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ORIENTAÇÃO / ITENS",
+    "question": "World Changes",
+    "answer": "As world changes podem ser conferidas pelo quadro na adventurer's guild, segundo andar, sala da direita. Basta dar look.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "LINKED TASKS",
+    "question": "Wiki",
+    "answer": "Veja as informações sobre as Linked Tasks em nossa Wiki: https://wiki.rubinot.com/pt-BR/linked-tasks",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "LINKED TASKS",
+    "question": "Mini Obelisk",
+    "answer": "O Mini Obelisk portátil ao ser utilizado ele some, resetando o CD de todos os bosses. Pode ser utilizado outro logo em seguida.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "LINKED TASKS",
+    "question": "Linked Tasks",
+    "answer": "O servidor possui um sistema de Linked Tasks que se encontram na Adventurers Guild, 2° andar, TP à direita - rubinot.com.br/tasks",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "LINKED TASKS",
+    "question": "Linked Tasks Comandos",
+    "answer": "Para acompanhar o andamento da sua Task use - !task check - ou habilite o Quest Tracker do \"- Task System\", pela janela do Quest Log. Para cancelar uma Task digite - !task clear",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "LINKED TASKS",
+    "question": "Task Coin",
+    "answer": "Utilizada como moeda de troca. Na terceira sala das tasks há um NPC que troca por certos itens. Veja a lista na nossa wiki: https://wiki.rubinot.com/pt-BR/linked-tasks",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "LINKED TASKS",
+    "question": "Task Knowledge",
+    "answer": "Serve para aumentar a contagem de kills durante, e apenas, nas linked tasks. Dura 1 hora corrida, ou seja, não há pausas. Para saber o tempo após utilizado o item, diga !task bonus. Foi obtível em eventos custom anteriores.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "LINKED TASKS",
+    "question": "Npc Task Coins",
+    "answer": "Disponivel após concluir toda a 3 sala das tasks.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "LINKED TASKS",
+    "question": "Stone of Ascension",
+    "answer": "Aumenta em +2 o tier do item que você usar a stone durante 3h corridas. Uso único.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "LINKED TASKS",
+    "question": "Grand Stone of Ascension",
+    "answer": "Aumenta em +3 o tier do item que você usar a stone durante 3h corridas. Uso único.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "LINKED TASKS",
+    "question": "Eternal Stone of Ascension",
+    "answer": "Aumenta em +2 o tier do item que você usar a stone durante 3 horas corridas. Uso infinito, porém com um cooldown de 3 dias",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "LINKED TASKS",
+    "question": "Boosted Exercise",
+    "answer": "Veja todas as informações sobre as Boosted Exercises em nossa Wiki: https://wiki.rubinot.com/pt-BR/boosted-exercise",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "LINKED TASKS",
+    "question": "Lothlorien Stone / Executioner Blood / Morgul's Heart / Corrupted Skull / N'zoth Essence",
+    "answer": "Por ora apenas decoração, ainda será atribuida uma função ao item",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "LINKED TASKS",
+    "question": "Recompensas Baú",
+    "answer": "As recompensas dos baús ao finalizar as tasks de uma sala são aleatórias.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Catacombs - Oramond",
+    "answer": "A Catacombs muda a cada 14 dias desde a última decisão. A única forma de saber a próxima data é anotando a última mudança. Para alterar o tipo de mobs, o tópico deve ser o mais votado no NPC Marvin de Oramond.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Deathling",
+    "answer": "Para ter acesso aos deathlings, basta fazer a missão The First Visitor da quest Liquid Black Quest.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Carnivours - Port Hope",
+    "answer": "A porta de acesso às Carnivores de Port Hope requer nível mínimo 250.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Lulu - Urmahlullu the Weakened",
+    "answer": "Para matar o boss lulu, é necesário ter no mínimo level 200.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Scarlet",
+    "answer": "Para matar a Scarlet, é necessário ter no mínimo level 250.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Timira",
+    "answer": "Para matar a Timira, é necessário ter no mínimo level 200.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "25 Years of Tibia - Quest",
+    "answer": "Ainda não se encontra disponível para fazer.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Acesso a Candia",
+    "answer": "Para começar o acesso, é necessário que tenha completado a missão \"A Dream Come True\" da Threatened Dreams Quest. Em seguida, continue o acesso através da missão Sweet Dream da mesma quest.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Acesso a Oskayaat",
+    "answer": "Começar pela missão \"The Enemies of the Pride\" da \"Grimvale Quest\". Matar os Minis dos lion, recolher os itens, clicar na estátua perto do tp do Heliodor, conversar com ele e seguir a quest.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Acesso Iksupan",
+    "answer": "Necessário realizar a missão Galthen and the City of Gold I da Adventures of Galthen Quest para ter acesso e completar a Galthen and the City of Gold II para ter acesso ao boss Mitmah",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Boss Megasylvan | Carnisylvan",
+    "answer": "Para ter acesso ao Boss Megasylvan e as Carnisylvan é necessario realizar as missões Galthen and the Lost Queen I, Death Under Bounac e Galthen and the Lost Queen II da Adventures of Galthen Quest.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Budrik | Mino Task | To Outfox a Fox Quest",
+    "answer": "Para fazer a task especial dos minotauros do NPC Budrik, é necessário fazer a To Outfox a Fox Quest (pegar o mining helmet) e depois de entregar a missão é só pedir task para realizar a To Outfox a Fox Quest. Aqui no servidor são 450 minotauros.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Acesso MOTA -1",
+    "answer": "Faça a mecânica das alavancas, retorne ao NPC Gareth e fale hi - bone, então faça as alavancas novamente.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Acesso The Monster",
+    "answer": "O acesso já se encontra liberado.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Banshee Quest",
+    "answer": "É necessário que realize os selos normalmente.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Bestiary Betterment",
+    "answer": "Ao utilizar este item, a contagem de bestiary ficará 3x e não 4x.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Boss Deeplings",
+    "answer": "Para acessar os Boss Depplings é necessário comprar o acesso com o NPC Helper, à esquerda da escada onde se usam as caixas. Basta dizer: Hi - Access - 10 - yes",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Brotherhood Alavanca",
+    "answer": "Após a missão do jogo da velha, é necessário utilizar a alavanca 2x, uma pra mover os pilares e outra pra fazer o portal aparecer.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Brotherhood Demonic Essence",
+    "answer": "Para entregar a Demonic Essence ao npc, precisa dizer Hi - Advancement.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Bultair/ Dragonlisk/ Wardragons",
+    "answer": "Para ter acesso, é necessário realizar a quest 20 years a cook completa.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Cachoeira Issavi",
+    "answer": "Fale com a NPC na entrada da hunt, pegue a chave e faça os puzzles, assim como no global.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Charm Expansion",
+    "answer": "Cada jogador pode alocar no máximo 6 charms, incluindo major e minors. Com o charm expansion a quantidade de charms é ilimitado, além de dar 25% de desconto ao remover um charm.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Cooldowns Warzones",
+    "answer": "Cooldown WZ = 1,2,3 são 20 horas / 4,5,6 são 4 horas",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Demon Oak",
+    "answer": "Igual global. Porém, aqui são apenas 666 Demon's e não precisa de rank. Não tem problema se comprar o Holy Icon de outro player, você poderá fazer normalmente.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Fibula quest",
+    "answer": "Se estiver sem a chave para sair, no corredor a direita tem um tp de exit.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Foxtail Amulet",
+    "answer": "Para adquirir o Foxtail Amulet, pedir missão pro NPC Daniel Steelsoul, em Edron, matar os 5 bosses e entregar a missão novamente.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Galthen's",
+    "answer": "Para adquirir a Galthen's Satchel, é preciso matar o Drume, reportar a missão, e depois fazer a quest da Galthen normalmente.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Gold Token",
+    "answer": "Os Gold Token podem ser utilizados para imbuiment; Vampirism, Strike e Void. 2 pro basico, 4 pro Intricate e 6 para o Powerfull, também é possivel comprar algumas armas Destruction com 50 deles. O NPC é a Yana, Adventure Guild +1 ao Sul.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Gravedigger",
+    "answer": "Na The Gravedigger of Drefia Quest, na parte de coletar o sangue, coletar no sqm em frente ao caixão.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Grimvale - Paradise Lost",
+    "answer": "Na missão da Conch Shell, coletar durante a Noite - xx:45 até xx:15. A concha tem cooldown de 10 min. Na missão de usar a folha da palmeira na tocha, usar EXATAMENTE na frente do Shrine, caso contrário a porta para acessar a Wooden Mouthpiece não abre.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Grizzly Adams",
+    "answer": "Para entregar a task, fale: hi - report.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Hazard",
+    "answer": "Após matar o Primal Menace no hazard level 1, fale com Gnomadness hi - accustomed - 2. Assim, você aumentará o seu hazard level para 2. Sempre que quiser mudar o seu hazard level, esse é o diálogo, mudando apenas o número no final.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Hazard - aumentar ou diminuir",
+    "answer": "Não precisa convencer as fadas. Converse com o NPC antes de enfrentar o Magma Bubble e depois fale novamente para matar o The Primal Menace.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Hireling",
+    "answer": "O Hireling na loja é um Aprendiz, vendendo apenas móveis. Para mais funcionalidades, é preciso comprar seu upgrade: Banker: Banco | Trader: Poções, Runas, Ferramentas | Cook: Comidas especiais | Steward: Acesso ao Stash. Cada upgrade custa 190 RC.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Hunting Points",
+    "answer": "Os Hunting Task Points servem como moeda de troca com o NPC Walter Jaeger. Podem ser trocados por diversos itens - https://www.tibiawiki.com.br/wiki/Hunting_Task_Points (ENVIAR O LINK SOMENTE VIA PRIVADO)",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Inquisition",
+    "answer": "A inquisition já se inicia na Missão 07: The Shadow Nexus. O item Special Flask (Água sagrada) é obtido no início da quest, na sala de teleports.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Inquisition Perdeu o flask?",
+    "answer": "Basta ir no NPC Julio Skeletin, e falar \"hi\" - \"special flask\" - \"yes\" para comprar por 1000gps.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Last GT",
+    "answer": "Para fazer o boss da Last GT, é necessário matar todos os mini antes. No nosso servidor não temos o sistema de pontuação, após matar os mini uma única vez, o acesso ao Last é liberado para sempre.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Liquid Black",
+    "answer": "A quest Liquid Black é necessária para o acesso aos Deeplings. Falar 2 yes ao invés de 3 para o NPC Spectulus. Com isso, já pode dar sequência na quest. Não vai dar quest log.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Lit Torch Adquirir",
+    "answer": "Para pegar uma Lit Torch, ir até o NPC Rhargu e falar Hi - Lost Torch, após ele te entregar a Lit Torch, utilizar uma Kitchen Knife em uma Lion's Mane Flower (entrada dos bosses do were lion) após isso usar a Chopped, na lit torch.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Loot Pouch",
+    "answer": "A LootPouch irá pegar todo o seu loot. Não precisa ser VIP. Após comprar, selecione ela em todos os slots de categorias de loot que desejar (a indicação é setar em todos) na configuração do Manage Loot Container e dê o comando - !autoloot - para ativá-la.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Nose Ring",
+    "answer": "A quest para adquirir o Nose Ring pode ser iniciada em qualquer lvl.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "POI",
+    "answer": "Para fazer a POI só é necessário o Holy Tible.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Potion Tibia Drome",
+    "answer": "Este tipo de potion possui um cooldown de 24 horas para ser utilizado novamente. Seu efeito de duração é 1 hora.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Silver Token",
+    "answer": "Os Silver Token podem ser utilizados para encantar itens, como Theurgic, Sleep Shawl.. Com 100 deles você pode comprar algumas partes de set com resistencia elemental, e comprar Pot de Utamo, tudo no NPC Cledwin, na Adventure Guild.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Taint Soul War",
+    "answer": "Pra tirar a taint precisa falar - hi - remove taint - pro NPC Flickering Soul. Aguarde os 14 dias para remover novamente.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Threatened Dreams",
+    "answer": "A quest Threatened Dreams começa já dentro da cidade de Feyrist, na missão A Dream come True. Basta falar com a Maelyrra e pedir mission. Já começa na parte de matar 200 criaturas e o Kroazur",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Tibia Drome",
+    "answer": "Funciona igual ao Global. Do dia 01 ao dia 15 de cada mês.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Warzone 1,2,3",
+    "answer": "O cooldown da WZ 1,2,3 são de 20 horas. O loot dos respectivos bosses não serão dividos através do Reward Chest, logo, fique atento para lootear o boss rapidamente e/ou vender o item via market e dividir entre o time.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Warzone 4,5,6",
+    "answer": "O cooldown da WZ 4,5,6 são de 4 horas. O loot dos seus bosses irão para o Reward Chest.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Warzone 7,8,9 - Acesso",
+    "answer": "Falar hi - talk - favour - yes ao NPC Gnomystery e depois hi - business - incidents - yes ao NPC Brodraem. Siga pelas grades até as criptas. (Relogue para entrar no TP).",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Warzone 7,8,9 - Shield 1",
+    "answer": "As Warzones 7, 8 e 9 agora possuem as mecânicas do global. Para aumentar o shield, é obrigatório completar as tasks. Após 30 minutos, o contador será zerado, e você sofrerá dano de fogo equivalente a 45% da sua vida a cada 5 segundos.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Warzone 7,8,9 - Shield 2",
+    "answer": "OBS: No momento, o servidor conta com apenas 4 das 7 tasks do global: Treasure Digging, Swarm Madness, Gnome Scouting e Waxworker. Para mais informações: https://www.tibiawiki.com.br/wiki/Too_Hot_To_Handle_Quest#Crystal_Splinters_and_Protective_Layer",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "WOTE",
+    "answer": "Fale com o NPC A Sleeping Dragon - Hi-Wayfarer-Mission-Yes - você ganhará um Spiritual Charm. Agora volte até o NPC Zizzle pelo mesmo teleporte no Sul e peça “hi-Mission”, pegue seu Replica of the Sceptre. Agora se inicia a Missão 10.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Rookgaard",
+    "answer": "O NPC Inigo, em Dawnport, pode te mandar para Rookgaard. Basta dizer: Hi - Rookgaard - Yes - Yes.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Supreme Cube",
+    "answer": "Atente-se que para fazer a quest do cubo no servidor, é necessário matar o \"Olho\" (An Observer Eye)",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Fenrock",
+    "answer": "Para ir para Fenrock no NPC Maris vá para Mistrock, em mistrock diga \"hi > mistrock\" e após isso, \"hi > fenrock\" a partir daí voce terá acesso a rachadura.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "Feroxa / Lua Cheia",
+    "answer": "Todo dia 13 e 26 do mês, em horário aleatório entre 3h-12h após o SS",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "QUESTS / STORE / TASK",
+    "question": "The Hive",
+    "answer": "A The Hive é aberta aqui no servidor!",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "OUTFITS / MONTARIAS",
+    "question": "Addons",
+    "answer": "Todos os addons tem que ser feito da maneira tradicional igual ao Global, levando os itens necessários aos NPC's respectivos. Tem que aguardar os horários assim como no Global.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "OUTFITS / MONTARIAS",
+    "question": "Assassin",
+    "answer": "Caso não esteja conseguindo entregar os itens da Assassins Outfits Quest, falar 'addon' antes de entregar cada item.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "OUTFITS / MONTARIAS",
+    "question": "Barbarian Outfits",
+    "answer": "O Barbarian Outfit começa pelo Addon 2. Após fazer esse Addon, você conseguirá fazer o Addon 1 normalmente.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "OUTFITS / MONTARIAS",
+    "question": "Dream Warrior Outfit (Dream Courts)",
+    "answer": "Falar hi/talk/story/short/task, pro NPC Vanys.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "OUTFITS / MONTARIAS",
+    "question": "Giant Beaver (Timira)",
+    "answer": "Para domar o Giant Beaver é necessário o item Colourful Water Lily, ao qual pode ser adquirido matando o Boss Timira e falando 'hi - mission' com o NPC Nilavarna em Marapur",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "OUTFITS / MONTARIAS",
+    "question": "Pirate (task itens)",
+    "answer": "Foi desativada pois ela pode ser feita nas Linked Task dos Pirates, a partir da segunda conclusão você recebera, sempre que concluir, um dos itens aleatoriamente no seu mail.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "OUTFITS / MONTARIAS",
+    "question": "Tinder Box",
+    "answer": "Só é possível pegar uma Tinder Box a cada 20 horas.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "OUTFITS / MONTARIAS",
+    "question": "Ursagrodon Mount",
+    "answer": "A ilha Chyllfroest está sempre ativa para que possa domar o Ursagrodon.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "OUTFITS / MONTARIAS",
+    "question": "Warrior outfit",
+    "answer": "Na Warriors Outfits Quest, falar apenas \"hardened bones\" para entregar os bones. A partir daí, entregar normalmente os outros itens.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "OUTFITS / MONTARIAS",
+    "question": "Wild Horse",
+    "answer": "Sua aparição acontece na Horse Station World Change, assim como no global. É necessário ocorrer os dois estágios.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "OUTFITS / MONTARIAS",
+    "question": "Shellodon",
+    "answer": "Para domar o Shellodon, você precisa estar no nivel maximo nas task da warzone 789, e derrotar o The Brainstealer.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "BOSSES",
+    "question": "Ancient Spawn of Morgathla",
+    "answer": "Precisa das três partes: Mallet Handle, Mallet Head, Mallet Pommel e pode ser montado entregando as partes ao NPC Gnominimus, que dropa dos boss da wz456, necessários para montar o Strange Mallet. Usado para \"despertar\" o Word Boss Ancient Spawn of Morgathla, tocando o Gongo Dourado na sala secreta (O item irá se quebrar após ser usado no gongo). Nao tem cd, se tiver 2 Strange Mallet pode-se fazer 2 seguidos.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "BOSSES",
+    "question": "Last DC",
+    "answer": "No momento está sendo necessario 5 mortes dos mini-bosses, para poder entrar na sala da Last.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "BOSSES",
+    "question": "Gaz'Haragoth",
+    "answer": "A invasão do Gaz'Haragoth são nos dias 1 e 15 de cada mês, devendo acompanhar o aviso no Server Log, ele spawna direto na Prison -4",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "BOSSES",
+    "question": "Grave Danger",
+    "answer": "Ela começa no NPC Jack Springer, abaixo do NPC da INQ. Após pedir a quest, matar os 5 dukes e reportar.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "BOSSES",
+    "question": "Jaul CD",
+    "answer": "Se não abrir o baú, não faz no próximo estágio. Ao abrir o baú e resetar a world change, é possível fazer novamente.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "BOSSES",
+    "question": "King Zelos",
+    "answer": "Para ter acesso ao Boss Zelos, precisa fazer a quest Grave Danger. Ela começa no NPC Jack Springer, abaixo do NPC da INQ. Após pedir a quest, matar os 5 dukes e reportar. Além disso, é necessário fazer o acesso à Isle of The Kings.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "BOSSES",
+    "question": "Last DC",
+    "answer": "Para ter acesso ao boss da Last DC, é necessário matar 5 mini antes (pode repetir).",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "BOSSES",
+    "question": "Last GT",
+    "answer": "Para fazer o boss da Last GT, é necessário matar todos os mini antes.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "BOSSES",
+    "question": "Não precisam de Acesso",
+    "answer": "Bosses como Oberon, Drume, Scarlett, Leiden, Urmahlullu não precisam de acesso. Alguns bosses como, por exemplo, Pale Worm, precisam dos mini bosses.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "BOSSES",
+    "question": "Ratmiral",
+    "answer": "Para matar o boss Ratmiral, matar o boss Tentugly antes.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "EVENTO CASTELO",
+    "question": "Castelo - abertura",
+    "answer": "O tp do Castelo abre às segundas (OPVP), quartas (NPVP) e domingos (RPVP), às 19:40 e fecha às 19:55 no templo de Thais, TP à direita, vagas limitadas. O evento tem duração de 1hr. Requisitos: lvl 400+. Mais info, http://rubinot.com.br/castle",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "EVENTO CASTELO",
+    "question": "Castle Coin",
+    "answer": "As Castle Coin, recebidas no Castelo, ou adquiridas via Market, podem ser vendidas no Market ou utilizadas no NPC Castle Merchant, dentro do Templo de Thais, a esquerda.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "EVENTO CASTELO",
+    "question": "Recompensa - Castle Coin",
+    "answer": "TODOS os jogadores que participarem do evento ganharão 1 Castle Coin como prêmio de participação.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "EVENTO CASTELO",
+    "question": "Castelo - mortes",
+    "answer": "As mortes que ocorrerem dentro do castelo, não irá contar como unjustified kill e não haverá penalidade de morte como: redução de skill, perdade de exp e/ou perda de bless.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "EVENTO CASTELO",
+    "question": "Castelo - refill",
+    "answer": "Na área do lobby de espera e nas bases de ambos os times, haverão NPC's para refill completo de supplys.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "EVENTO CASTELO",
+    "question": "Castelo - sem player",
+    "answer": "Caso o evento não ocorra, os jogadores serão enviados ao templo e o dinheiro retornado ao balance.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "EVENTO CASTELO",
+    "question": "Castelo - taxas",
+    "answer": "As taxas para entrar no evento é baseada conforme seu level. Level 400~599 = 2kk / 600~999 = 3kk / 1000~1199 = 4kk / 1200+ = 5kk",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "BAZAAR",
+    "question": "Quando entra no Bazar",
+    "answer": "Ao programar a data e adicionar ao leilão. O char entra no próximo SS.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "BAZAAR",
+    "question": "Cancelar Char Bazar",
+    "answer": "Se você bidou o char de alguém, só se outra pessoa cobrir sua oferta. Se você colocou a venda um char, só é possivel cancelar se não houver nenhum bid nele através do site.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "BAZAAR",
+    "question": "Char com Warning",
+    "answer": "Char com warning não pode ser vendido pelo bazaar e é uma punição definitiva.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "BAZAAR",
+    "question": "Como Vender Char",
+    "answer": "Para vender char basta abrir a Store e clicar na parte inferior onde tem um char com uma bag atrás. Certifique-se de cumprir todos os requesitos.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "BAZAAR",
+    "question": "Definir tempo de venda",
+    "answer": "Quem define o tempo de leilão é o próprio player, logo, atente-se na definição de data e hora.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "BAZAAR",
+    "question": "Taxa Venda de Char",
+    "answer": "A taxa pra venda de char no baazar é de 50 coins pra criar a offer de venda + 8% do valor do char quando efetivar a venda.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "BAZAAR",
+    "question": "DICA PARA TUTORES",
+    "answer": "Anúncios de vendas de char SOMENTE pelo ADVERTISING e com o respectivo link do bazaar. Se for anunciado char que não esteja no bazaar, será considerado anúncio de venda RL, que vai contra as regras do servidor.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "BAZAAR",
+    "question": "Ganhando o leilão",
+    "answer": "Caso ganhe o leilão, o char só irá para sua conta posterior ao término do SS.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "BAZAAR",
+    "question": "Rubini Coins retidas",
+    "answer": "As suas RC ficarão retidas até o final do leilão. Se você possui 1000 RC e bidou 600 RC em um char, você não conseguirá aumentar mais o bid, pois só terá 400 RC disponíveis.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "BAZAAR",
+    "question": "Taxa de 50 RC",
+    "answer": "A taxa de 50 RC só é \"reembolsada\" caso o player cancele o leilão antes do char entrar no Bazaar.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "BAZAAR",
+    "question": "Valor mínimo de bid",
+    "answer": "Caso o bid minímo não tenha sido alcançado, as coins voltam para quem bidou e o char volta para o dono original.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "RTC",
+    "question": "Party VIP List",
+    "answer": "Agora é possível convidar amigos diretamente pela VIP list, facilitando a formação de party. Você também pode aceitar ou cancelar convites e transferir o líder, tudo isso diretamente pela VIP list e de qualquer lugar do mapa.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "RTC",
+    "question": "Spell Chat",
+    "answer": "Uma nova opção foi adicionada para ocultar mensagens de magias no chat local, tornando a interface mais limpa e agradável durante as hunts. Podendo ser ativada ou desativada facilmente nas configurações do cliente (Options > Interface > Console).",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "RTC",
+    "question": "Auto Aim",
+    "answer": "O modo Auto Aim está disponível apenas no RTC. Neste modo, magias direcionais são lançadas na direção do seu alvo atual. Se você não tiver um alvo, ele ainda lançará o feitiço na direção em que você estiver olhando.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "RTC",
+    "question": "Ativar/Desativar - Auto Aim",
+    "answer": "Para ativar/desativar o modo, é necessário abrir a Cyclopedia clicar no ícone 'Magical Archive', selecionar a spell desejada e, na parte inferior, marcar/desmarcar a opção 'Aim at target'",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "RTC",
+    "question": "Screenshot",
+    "answer": "Para tirar um print no RTC, vá em Config > General Hotkeys, busque por \"screenshot\", defina uma tecla para \"Take Screenshot\" e pressione a hotkey. Agora, sempre que pressioná-la no jogo, a imagem será copiada para a área de transferência.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "RTC",
+    "question": "Ativação Runas / Charms",
+    "answer": "O RTC oferece a opção de verificar a ativação de Runas diretamente no cliente. Para isso, basta acessar o \"Analytics Selector\" e clicar em \"Misc Analyzer\".",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "RTC",
+    "question": "RTCaster",
+    "answer": "O RTCaster será desligado no PZ ou durante a hunt caso seja detectada inatividade do jogador. Essa medida visa protegê-lo e prevenir problemas maiores.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "RTC",
+    "question": "Gravação",
+    "answer": "Caminho para abrir as pastas das gravações:%localappdata%\\Programs\\emac-launcher\\\"mundo\"\\records",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "RTC",
+    "question": "Abrir Mini Map",
+    "answer": "Basta apertar ALT + M.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "RTC",
+    "question": "Quick Sell Loot",
+    "answer": "O RTC possui uma forma rápida de vender os itens. Ao abrir uma janela de NPC de venda de loot, em cima da lista de item haverá um botão para verificar os itens que queira vender rapidamente.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "RTC",
+    "question": "Streaming/Prints",
+    "answer": "O RTC por questão de segurança fica com a tela preta para transmissão e prints de imagens. Para que possa ser liberado essa opção, precisa abrir ticket solicitando o desbloqueio, entretanto é liberado para criadores de conteúdo, mediante analise do canal.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "RTC",
+    "question": "Quick Sell BlackList",
+    "answer": "Todos os itens em Blacklist serão ignorados na hora do Quick Sell para o NPC. Para adicionar um item na Blacklist, você pode ir na Cyclopedia > \"Item\" > \"Skip When Quick Selling\"",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "RTC",
+    "question": "Alterar opacidade das magias",
+    "answer": "Configuração > Graphics > Effects > Desabilite o \"Stack Effects\" e habilite o \"Unlimit Effects\". Escolha em Opacity o quanto quiser.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "RTC",
+    "question": "Como dar pause no Helper?",
+    "answer": "Configuração > Controls > General Hotkeys > Procure por \"Helper Status\" e coloca uma hotkey para pausar o Auxiliador (Helper). A padrão é o botão \"Pause\".",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "RTC",
+    "question": "Como dar SIO?",
+    "answer": "Para conseguir dar sio / usar UH em outro player, precisa estar em PT. É possível curar até 2 players pelo Helper.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "RTC",
+    "question": "Como deixar FPS alto",
+    "answer": "Configuração > Graphics > Desabilite o \"V-Sync\" e habilite o \"No Frame Rate Limit\".",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "RTC",
+    "question": "Como expandir o mapa",
+    "answer": "Veja todas as informações sobre as funcionalidesdes do mapa do RTC em nossa wiki: https://wiki.rubinot.com/pt-BR/mapa",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "RTC",
+    "question": "Configurar Spirit Potion (RP)",
+    "answer": "Ao selecionar a Spirit Potion, do lado tem um \"i\". Clicando nele pode ficar azul (mana), vermelho (vida), ou branco (padrão caso use o pot de mana ou vida em si).",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "RTC",
+    "question": "Salvar hotkeys",
+    "answer": "Crie um preset de hotkey em Config > Controls > Custom Hotkeys com o nome do seu personagem, configure ele da maneira que desejar, selecione a opcao \"Auto-switch hotkey preset\" e reinicie o RTC.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "RTC",
+    "question": "Exportar Hotkeys",
+    "answer": "Para salvar as configurações do RTC caminhe até a pasta do seu usuario: C:\\Users\\(seu usuario)\\AppData\\Roaming\\RTC, e salve a pasta Config.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "RTC",
+    "question": "Consigo importar as hotkeys?",
+    "answer": "Através das configurações do RTC é possivel importar as hotkeys do cliente 13.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "RTC",
+    "question": "Link de apresentação",
+    "answer": "Confira aqui o que é o RTC: https://www.youtube.com/watch?v=KIEtngxUCP0",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "RTC",
+    "question": "Marcação",
+    "answer": "As marcações foram adicionadas ao RTC",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "RTC",
+    "question": "Mapa preto",
+    "answer": "Se o player reclamar que o mapa está todo preto, ou que não salva, oriente a abrir ticket pra ser repassado o mapa do RTC pra ser substituido na pasta.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "RTC",
+    "question": "No RTC tem smart walk?",
+    "answer": "Para habilitar o Smart Walk, vá em Configuração > Misc > Gameplay e habilite o \"Smart Walk\".",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "RTC",
+    "question": "Obrigatório",
+    "answer": "Por hora não, enquanto não confirmarem a estabilidade sera opcional, após os testes será feito uma enquete definindo onde será obrigatório.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "RTC",
+    "question": "Onde fica o helper?",
+    "answer": "No menu a direita tem um ícone de um braço forte flexionado, clicando lá irá aparecer o menu do Auxiliador (Helper).",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "RTC",
+    "question": "Hotkey Preset",
+    "answer": "Crie um preset de hotkey com o nome do seu personagem, configure ele da maneira que desejar, selecione a opcao \"Auto-switch hotkey preset\" e reinicie o RTC.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "RTC",
+    "question": "Recuperar Hotkeys",
+    "answer": "Caso você tenha perdido as configurações do seu RTC após a atualização de hoje, siga o passo a passo do link a seguir > https://abrir.link/hlVyL",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "RTC",
+    "question": "RTC não abre no meu PC",
+    "answer": "O RTC não roda em Windows 7. Sua opção de download estará disponível apenas na versão de Launcher.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "RTC",
+    "question": "Vai ter RTC para MAC / Linux?",
+    "answer": "Sim, porém não há data oficial.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "HOUSE",
+    "question": "Autorizar todos os players",
+    "answer": "Para autorizar a entrada de todo o servidor, basta colocar * na lista de convidados. Todos terão acesso a residencia.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "HOUSE",
+    "question": "Como sair da house com ela trancada",
+    "answer": "Basta usar o comando: alana sio \"seu nick",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "HOUSE",
+    "question": "Comandos House",
+    "answer": "Aleta Sio, invita os players sem poder mexer na house. Aleta som, invita os players podendo mexer nos itens. Aleta Grav, edita a porta para quem pode abrir/fechar. Alana sio \"nome, expulsa o jogador ou a si mesmo da house.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "HOUSE",
+    "question": "Comprar House",
+    "answer": "Para comprar uma House, é necessário ser lvl 300+ e ir até a cyclopedia do jogo. Não precisa ser VIP. O aluguel é cobrado semanalmente.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "HOUSE",
+    "question": "Dono da House",
+    "answer": "Somente o dono da House consegue dar Uwnrap em itens da Store para uso em casas; Dummy, Daily Rewards, Decoração, Hirelings, etc..",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "HOUSE",
+    "question": "Editar permissões da porta (aleta grav)",
+    "answer": "Use esta magia enquanto estiver de frente para a porta. Edite a lista de personagens que podem ou não abrir a porta desejada.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "HOUSE",
+    "question": "Tempo Leilão",
+    "answer": "O tempo de leilão da House, após o bid, são de 48h.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "HOUSE",
+    "question": "Transferir Guildhouse",
+    "answer": "Precisara passar a GH para outro lider de Guild, desfazer a sua guild, entrar em outra e pedir pro jogador transferir a GH de volta, as transferencias da GH só contabiliza no Server Save",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "HOUSE",
+    "question": "Guildhouse",
+    "answer": "Você só poderá comprar uma guildhouse caso seja leader de Guild e seja level 300+. Não precisa ser VIP.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "HOUSE",
+    "question": "Invitar Player",
+    "answer": "Aleta Sio (caso queira que ele só entre e não mexa nos itens) ou Aleta Som (para poder abrir/fechar portas, invitar pessoas no aleta sio e mexer nos itens)",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "HOUSE",
+    "question": "Perdendo a house",
+    "answer": "Você irá perder a house caso não pague o aluguel semanal.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "HOUSE",
+    "question": "Transferir House",
+    "answer": "É necessário que o outro player seja level 300+. Para transferir, vá em Cyclopedia > House > o dono deve clicar em \"Transfer\" e digitar o nome do player a ser o novo propietário. Após isso, o player segue o mesmo caminho e aceita a house.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "HOUSE",
+    "question": "Foods espeicias / Foods house",
+    "answer": "Special Foods: Carrion Casserole (+30% Vida máx) Carrot Pie (+7 dist) Chilli Com (+80 speed) Consecrated Beef (+30% Mana máx) Delicatessen Salad (+3 axe/sword/club) Roasted Wyvern Wings (+7 shield) Tropical Marinated Tiger (+3 ML) | Duração: 1H, CD: 10min",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "ITENS ROLETA",
+    "question": "Exercise Present",
+    "answer": "Ao dar use, você podera escolher dentre umas das armas de treino disponiveis, com 14400 cargas.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "VIP",
+    "question": "Bônus com loyalty",
+    "answer": "Pontos Loyalty é algo diferente do Bônus de Skill que vem com os pontos loyalty. Pra +3 de skill você precisa de 6 loyalty. Tem a tabela toda aqui: https://rubinot.com.br/loyalty",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "VIP",
+    "question": "Full Loyalty",
+    "answer": "Você precisa comprar 70 VIP's para desbloquear todos os pontos skill de Loyalty (10 pontos). Não precisa esperar uma VIP acabar para poder comprar outra.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "VIP",
+    "question": "Loyalty",
+    "answer": "É acumulativo, você compra 1 mês e ganha 1, depois com 3 meses você ganha 2, depois com 6 meses você ganha 3, 9/4, 15/5, 21/6, 30/7, 42/8, 56/9 e 70/10. Mais infos no site https://rubinot.com.br/loyalty",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "VIP",
+    "question": "VIP - info",
+    "answer": "Confira todas as informações sobre os benefícios da VIP neste link: https://rubinot.com.br/loyalty",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "VIP",
+    "question": "Imbuements",
+    "answer": "Caso seja VIP, NENHUM imbuement será consumido dentro de área PZ. Porém, se você não for VIP, os imbuements de Boots e Backpack serão consumidos normalmente.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Candia Update",
+    "question": "Fragmento de Gemas",
+    "answer": "Para se conseguir os fragmentos, pode usar o Crusher, vende em npc de ferramentas e tem 1 carga, e usar em qualquer gema. Gemas pequenas dão de 1-5 / Medias 2-8 / Grande 1-4. Ou comprar fragmentos em joalherias.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Candia Update",
+    "question": "Preços para deixar TOPADA",
+    "answer": "Vai ser necessario investir 37kk e 50 fragmentos para deixar um mod basico no nivel maximo, e 92kk e 50 fragmentos para deixar um mod superior no nivel maximo.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Candia Update",
+    "question": "Gemas Fragmentadas",
+    "answer": "As gemas que foram fragmentadas ANTES do update não será contabilizada. Logo, somente as gemas fragmentadas após o update que irão contabilizar.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Candia Update",
+    "question": "Novo Gran Con",
+    "answer": "O Gran Con foi reformulado assim como no Global, e agora ele só atinge o potencial máximo, ao desbloquear os dois Perks do Gran Con, aumentando o dano base em 380%",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Candia Update",
+    "question": "Importar Bugando",
+    "answer": "Pasta 'character data' (C:\\Users\\xxxx\\AppData\\Local\\RubinOT) apagar os arquivos wheelofdestiny.json e sidebar.json de todos os chares que voce esta tentando puxar e bugando o cliente.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Candia Update",
+    "question": "Soulpit",
+    "answer": "A Soulpit é um sistema de desafio de criaturas que possibilita aos jogadores que obtiveram sucesso, ganhar bonus de experiência, de 2 a 4% na raw, nessas criaturas, baseada nos estágios do Beastiary.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Candia Update",
+    "question": "Soulcore",
+    "answer": "Sempre que você matar um monstro diabólico, você tem a chance obter o Soul Core desta criatura, ou em casos raros, também pode derrubar o Soul Core de uma criatura incomum, rara ou muito rara dentro da mesma classe do Bestiário.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Candia Update",
+    "question": "Soulpit Arena",
+    "answer": "Depois de obter um soul core de sua preferência, é hora de ir para Soulpit, na parte nordeste de Hrodmir. Você pode iniciar o desafio sozinho ou com até 5 jogadores no total. Ofereça o soul core ao obelisco na sala de entrada e prepare-se para a batalha!",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Candia Update",
+    "question": "Soul Prism",
+    "answer": "Pode ser usado em um Soul Core para transformá-lo no de uma criatura aleatória em uma dificuldade maior de Bestiário.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Candia Update",
+    "question": "Aumentar a RAW",
+    "answer": "Ao desbloquear o Animus Mastery para uma criatura específica, ganha um bônus de 2% raw nessa criatura. Aumenta em 0,1% para cada 10 monstros diferentes que o jogador completar a Soulpit, até um máximo adicional de 2%.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Winter Update 2024",
+    "question": "No Rest for the Wicked",
+    "answer": "A quest nova do Winter Update \"No Rest for the Wicked \" inicia-se no NPC Fernlor, basta ir até a Academia de Edron na torre sudeste e interagir com \"hi - help - monitor - anomalies - picture - yes\". A quest completa, com spoiler, encontra-se em https://www.tibiawiki.com.br/wiki/No_Rest_for_the_Wicked_Quest",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Winter Update 2024",
+    "question": "Fiend Slayer Outfits",
+    "answer": "Para conquistar o outfit base você precisa completar a quest No Rest for the Wicked Quest. O Addon 1 e Addon 2 são drops do Boss Arbaziloth",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Winter Update 2024",
+    "question": "Azzilon",
+    "answer": "Azzilon Castle é o novo local de caça do Winter Update 2024, o acesso fica na Ivory Tower, no andar inferior da torre da direita. Os monstros são equiparados a Ice Library.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Winter Update 2024",
+    "question": "Amplification",
+    "answer": "O efeito de tier na bota amplifica o efeito dos itens com tiers que você está usando, aumentando a chance de ativação deles.Quanto maior o tier das suas botas, maior será esse bônus passivo.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Winter Update 2024",
+    "question": "Novo Sistema Charms",
+    "answer": "Os charms foram remodelados totalmente, agora eles possuem divisões entre \"Major Charm\" e \"Minor Charm\". Além disso, os Major Charm agora possuem niveis que podem ser melhorados com o sistema de \"Echoes\"",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Winter Update 2024",
+    "question": "Charm Echoes",
+    "answer": "Os Minor Charm Echoes podem ser obtidos ao desbloquear um Major Charm ou através da Promotion, sendo: Promotion 100 echoes | Desbloquear Major: 50 echoes | Aumentar a Major para level 2: 100 echoes| Aumentar a Major para level 3: 200 echoes",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Winter Update 2024",
+    "question": "DoomForge",
+    "answer": "Para obter acesso ao novo sistema \"Doomforge\" é necessário a realização da quest \"No Rest for the Wicked Quest\".",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Winter Update 2024",
+    "question": "Forgemaster",
+    "answer": "O Forgemaster aprimora apenas as armas inferniarchs, após obter acesso e possuir todos os itens necessários basta falar \"hi – craft – \"TIPO DA ARMA\" – \"TIPO DE IMBUEMENT\" – yes.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Winter Update 2024",
+    "question": "Novos Imbue",
+    "answer": "Rending: +5% de chance de dano crítico, +48% de dano crítico (contra 40% do imbuement normal) | Draining: +29% de life leech (contra 25% do imbuement normal) | Siphoning: +10% de mana leech (contra 8% do imbuement normal)",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Winter Update 2024",
+    "question": "Stash",
+    "answer": "Com o update de inverno, você poderá armazenar no seu stash todos os itens que estiverem em condições impecáveis. Isso inclui peças de equipamento que não estejam imbuidas ou com tiers, além de anéis, amuletos e colares que ainda tenham sua duração completa ou todas as cargas restantes.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Arena",
+    "question": "Arena Wiki",
+    "answer": "Todas as informações sobre a Arena podem ser encontradas em: https://wiki.rubinot.com/pt-BR/prestige-arena",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Arena",
+    "question": "Remover bolinha preta do char / Remover Rank",
+    "answer": "Para remover seu rank, clique em \"Open Prestige Arena\" (Um troféu amarelo em baixo de configurações), e desmarque a opção \"Show Division Icon\"",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Arena",
+    "question": "Remover rank de outros jogadores",
+    "answer": "Para remover o rank de outros players, vá em Configurações > Interface > HUD > Desmarcar a opção \"Show Division Icon\" em HUD for Other Creatures.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Weapon Proficiency",
+    "question": "Proficiência das armas",
+    "answer": "Agora os monstros mortos também dão experiência para sua arma. Para receber a experiência em sua arma basta dar um hit (igual bestiário) e estar com ela equipada no momento da morte do monstro.",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "Weapon Proficiency",
+    "question": "Proficiência por monstro",
+    "answer": "Exp por kill de monstro de acordo com o bestiário > Harmless 1 / Trivial 30 / Easy 70 / Medium 100 / Hard 165 / Challenging 240. Para bosses segue Bane 500 / Archfoe 5k / Nemesis 15k",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "INFORMAÇÕES DESCONTINUADAS",
+    "question": "Aniversário 1 ano RubinOT",
+    "answer": "Toda as informações sobre mecânicas e loot dos bosses de aniversário podem ser conferidas neste link: https://wiki.rubinot.com/wiki/index.php/Boss_de_Aniversario",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "INFORMAÇÕES DESCONTINUADAS",
+    "question": "CD Boss de Aniversário",
+    "answer": "Ao tentar passar pelo teleport, se conseguir passar é porque não está em CD",
+    "date_extracted": "2025-12-07"
+  },
+  {
+    "category": "INFORMAÇÕES DESCONTINUADAS",
+    "question": "Boss de Aniversário",
+    "answer": "Localizado ao norte do templo de Thais, na pracinha, um buraco a direita. Possui um CD de 20h e vai ficar disponível até o SS do dia 01 de junho.",
+    "date_extracted": "2025-12-07"
+  }
+]
