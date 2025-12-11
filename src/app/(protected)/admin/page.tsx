@@ -2,18 +2,19 @@
 
 import { useState, useEffect } from 'react'
 import { useSession } from 'next-auth/react'
-import { AlertCircle, Users, Flag, Edit, Trash2, Plus, Lightbulb, Check, X, Archive, Save } from 'lucide-react'
+import { AlertCircle, Users, Flag, Edit, Trash2, Plus, Lightbulb, Check, X, Archive, Save, Tag } from 'lucide-react'
 import { hasPermission } from '@/config/roles'
 
 import { CharacterCounter } from '@/components/ui/CharacterCounter'
 import { CustomDropdown } from '@/components/ui/CustomDropdown'
 import { SERVERS } from '@/config/constants'
+import { CategoriesTab } from '@/components/admin/CategoriesTab'
 
 export default function AdminPage() {
     const { data: session, status } = useSession()
     const userRole = (session?.user as any)?.role || 'Tutor'
 
-    const [activeTab, setActiveTab] = useState<'reports' | 'questions' | 'users' | 'suggestions' | 'archived'>('reports')
+    const [activeTab, setActiveTab] = useState<'reports' | 'questions' | 'users' | 'suggestions' | 'archived' | 'categories'>('reports')
 
     // Reports state
     const [reports, setReports] = useState<any[]>([])
@@ -249,6 +250,7 @@ export default function AdminPage() {
                 {[
                     { id: 'reports', label: 'Reports', icon: Flag },
                     { id: 'questions', label: 'Questions', icon: Edit },
+                    { id: 'categories', label: 'Categories', icon: Tag },
                     { id: 'users', label: 'Users', icon: Users },
                     { id: 'suggestions', label: 'Suggestions', icon: Lightbulb },
                     { id: 'archived', label: 'Archived', icon: Archive },
@@ -319,6 +321,8 @@ export default function AdminPage() {
                         )}
                     </div>
                 )}
+
+                {activeTab === 'categories' && <CategoriesTab />}
 
                 {activeTab === 'questions' && (
                     <div className="space-y-6">
