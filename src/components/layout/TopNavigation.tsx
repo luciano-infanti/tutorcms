@@ -171,21 +171,23 @@ export function TopNavigation() {
 
                             {/* Dropdown Menu */}
                             {showDropdown && (
-                                <div className="absolute top-full right-0 mt-2 w-48 bg-white dark:bg-gemini-surface rounded-xl shadow-lg border border-light-border dark:border-gemini-surfaceHighlight py-1 animate-fade-in z-50">
-                                    <Link
-                                        href="/profile"
-                                        className="flex items-center gap-2 px-4 py-2 text-sm text-light-text dark:text-gemini-text hover:bg-gray-100 dark:hover:bg-white/5 transition-colors cursor-pointer"
-                                    >
-                                        <User className="w-4 h-4" />
-                                        Profile
-                                    </Link>
-                                    <button
-                                        onClick={() => signOut({ callbackUrl: '/' })}
-                                        className="w-full flex items-center gap-2 px-4 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors text-left cursor-pointer"
-                                    >
-                                        <LogOut className="w-4 h-4" />
-                                        Sign Out
-                                    </button>
+                                <div className="absolute top-full right-0 w-48 pt-2 animate-fade-in z-50">
+                                    <div className="bg-white dark:bg-gemini-surface rounded-xl shadow-lg border border-light-border dark:border-gemini-surfaceHighlight py-1">
+                                        <Link
+                                            href="/profile"
+                                            className="flex items-center gap-2 px-4 py-2 text-sm text-light-text dark:text-gemini-text hover:bg-gray-100 dark:hover:bg-white/5 transition-colors cursor-pointer"
+                                        >
+                                            <User className="w-4 h-4" />
+                                            Profile
+                                        </Link>
+                                        <button
+                                            onClick={() => signOut({ callbackUrl: '/' })}
+                                            className="w-full flex items-center gap-2 px-4 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors text-left cursor-pointer"
+                                        >
+                                            <LogOut className="w-4 h-4" />
+                                            Sign Out
+                                        </button>
+                                    </div>
                                 </div>
                             )}
                         </div>

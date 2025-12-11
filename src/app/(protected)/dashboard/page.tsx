@@ -13,13 +13,11 @@ import { Search, ThumbsUp, Pin, Flag, Copy, X, Lightbulb, Edit, Trash2, Plus } f
 import { cn } from '@/lib/utils'
 import { HighlightedText } from '@/components/ui/HighlightedText'
 import { WikiLinker } from '@/components/ui/WikiLinker'
+import { hasPermission, UserRole } from '@/config/roles'
 import { useTypewriter } from '@/components/ui/TypewriterPlaceholder'
+import { Snackbar } from '@/components/ui/Snackbar'
 
 type Question = Database['public']['Tables']['questions']['Row']
-
-
-
-import { Snackbar } from '@/components/ui/Snackbar'
 
 export default function DashboardPage() {
     const { data: session } = useSession()
@@ -61,7 +59,10 @@ export default function DashboardPage() {
         setSnackbar({ message, type, isOpen: true })
     }
 
-    const isGM = (session?.user as any)?.role === 'GM'
+    const userRole = (session?.user as any)?.role as UserRole
+    const canAdd = hasPermission(userRole, 'canCreateQuestions')
+    const canEdit = hasPermission(userRole, 'canEditQuestions')
+    const canDelete = hasPermission(userRole, 'canDeleteQuestions')
 
     useEffect(() => {
         const fetchData = async () => {
@@ -276,7 +277,7 @@ export default function DashboardPage() {
                         )}
                     </div>
 
-                    {isGM && (
+                    {canAdd && (
                         <button
                             onClick={() => setShowAddQuestionModal(true)}
                             className="flex items-center gap-2 px-6 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-[28px] font-medium transition-all whitespace-nowrap cursor-pointer"
@@ -371,26 +372,30 @@ export default function DashboardPage() {
                                                         <span className="text-xs font-bold">{score}</span>
                                                     </button>
 
-                                                    {isGM && (
+                                                    {(canEdit || canDelete) && (
                                                         <>
                                                             <div className="w-px h-4 bg-gray-300 dark:bg-gray-700 mx-1" />
-                                                            <button
-                                                                onClick={() => {
-                                                                    setEditingQuestion(q)
-                                                                    setShowAddQuestionModal(true)
-                                                                }}
-                                                                className="p-1.5 rounded-full hover:bg-blue-100 dark:hover:bg-blue-900/30 text-gray-400 dark:text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer"
-                                                                title="Edit Question"
-                                                            >
-                                                                <Edit className="w-4 h-4" />
-                                                            </button>
-                                                            <button
-                                                                onClick={() => handleDeleteQuestion(q.id)}
-                                                                className="p-1.5 rounded-full hover:bg-red-100 dark:hover:bg-red-900/30 text-gray-400 dark:text-gray-500 hover:text-red-600 dark:hover:text-red-400 transition-colors cursor-pointer"
-                                                                title="Delete Question"
-                                                            >
-                                                                <Trash2 className="w-4 h-4" />
-                                                            </button>
+                                                            {canEdit && (
+                                                                <button
+                                                                    onClick={() => {
+                                                                        setEditingQuestion(q)
+                                                                        setShowAddQuestionModal(true)
+                                                                    }}
+                                                                    className="p-1.5 rounded-full hover:bg-blue-100 dark:hover:bg-blue-900/30 text-gray-400 dark:text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer"
+                                                                    title="Edit Question"
+                                                                >
+                                                                    <Edit className="w-4 h-4" />
+                                                                </button>
+                                                            )}
+                                                            {canDelete && (
+                                                                <button
+                                                                    onClick={() => handleDeleteQuestion(q.id)}
+                                                                    className="p-1.5 rounded-full hover:bg-red-100 dark:hover:bg-red-900/30 text-gray-400 dark:text-gray-500 hover:text-red-600 dark:hover:text-red-400 transition-colors cursor-pointer"
+                                                                    title="Delete Question"
+                                                                >
+                                                                    <Trash2 className="w-4 h-4" />
+                                                                </button>
+                                                            )}
                                                         </>
                                                     )}
                                                 </div>
@@ -406,7 +411,7 @@ export default function DashboardPage() {
                         <p className="text-light-subtext dark:text-gemini-subtext">
                             No results found for "{search}"
                         </p>
-                        {isGM ? (
+                        {canAdd ? (
                             <button
                                 onClick={() => setShowAddQuestionModal(true)}
                                 className="flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-medium transition-all cursor-pointer"

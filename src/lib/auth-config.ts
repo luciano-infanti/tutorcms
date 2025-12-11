@@ -59,12 +59,11 @@ export const authOptions: NextAuthOptions = {
                         // This prevents blocking authentication
                     }
                 } else {
-                    // Update avatar and role if user exists
+                    // Update avatar if user exists (do NOT overwrite role)
                     const { error: updateError } = await supabase
                         .from('users')
                         .update({
                             avatar_url: user.image || null,
-                            role: getUserRole(user.email)
                         })
                         .eq('email', user.email)
 
@@ -82,7 +81,20 @@ export const authOptions: NextAuthOptions = {
         },
         async jwt({ token, user }) {
             if (user) {
-                token.role = getUserRole(user.email)
+                // Fetch the latest role from the database to ensure the token is up to date
+                // This allows role changes in the DB to be reflected in the session upon sign in
+                const { data: dbUser } = await supabase
+                    .from('users')
+                    .select('role')
+                    .eq('email', user.email)
+                    .single()
+
+                if (dbUser) {
+                    token.role = dbUser.role
+                } else {
+                    // Fallback to config role only if DB fetch fails (shouldn't happen for valid users)
+                    token.role = getUserRole(user.email)
+                }
             }
             return token
         },
