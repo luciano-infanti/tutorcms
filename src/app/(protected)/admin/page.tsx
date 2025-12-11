@@ -515,6 +515,9 @@ export default function AdminPage() {
                                                 <p className="text-sm text-light-subtext dark:text-gemini-subtext">
                                                     {user.character_name || 'No character'} • {user.server || 'No server'}
                                                 </p>
+                                                <p className="text-xs text-gray-400 dark:text-gray-500 mt-1">
+                                                    Last seen: {user.last_seen ? new Date(user.last_seen).toLocaleString() : 'Never'}
+                                                </p>
                                             </div>
                                         </div>
                                         <div className="flex items-center gap-4">
