@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { getServerSession } from '@/lib/auth'
 import { createClient } from '@supabase/supabase-js'
+import { hasPermission } from '@/config/roles'
 
 const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -11,7 +12,7 @@ export async function GET() {
     const session = await getServerSession()
     const role = (session?.user as any)?.role
 
-    if (role !== 'GM') {
+    if (!hasPermission(role, 'canViewAdminDashboard')) {
         return NextResponse.json({ error: 'Unauthorized' }, { status: 403 })
     }
 
@@ -33,7 +34,7 @@ export async function POST(request: Request) {
     const session = await getServerSession()
     const role = (session?.user as any)?.role
 
-    if (role !== 'GM') {
+    if (!hasPermission(role, 'canCreateQuestions')) {
         return NextResponse.json({ error: 'Unauthorized' }, { status: 403 })
     }
 
@@ -62,7 +63,7 @@ export async function PUT(request: Request) {
     const session = await getServerSession()
     const role = (session?.user as any)?.role
 
-    if (role !== 'GM') {
+    if (!hasPermission(role, 'canEditQuestions')) {
         return NextResponse.json({ error: 'Unauthorized' }, { status: 403 })
     }
 
@@ -91,7 +92,7 @@ export async function DELETE(request: Request) {
     const session = await getServerSession()
     const role = (session?.user as any)?.role
 
-    if (role !== 'GM') {
+    if (!hasPermission(role, 'canDeleteQuestions')) {
         return NextResponse.json({ error: 'Unauthorized' }, { status: 403 })
     }
 
