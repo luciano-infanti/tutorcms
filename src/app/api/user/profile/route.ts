@@ -17,6 +17,20 @@ export async function POST(request: Request) {
     try {
         const { characterName, server } = await request.json()
 
+        // Check for uniqueness
+        if (characterName) {
+            const { data: existingUser } = await supabase
+                .from('users')
+                .select('id')
+                .eq('character_name', characterName)
+                .neq('email', session.user.email)
+                .single()
+
+            if (existingUser) {
+                return NextResponse.json({ error: 'Character name is already taken.' }, { status: 400 })
+            }
+        }
+
         // Update user profile
         const { error } = await supabase
             .from('users')

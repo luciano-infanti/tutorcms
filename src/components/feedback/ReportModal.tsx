@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { X, AlertTriangle } from 'lucide-react'
 
 interface ReportModalProps {
@@ -13,6 +13,14 @@ interface ReportModalProps {
 export function ReportModal({ questionId, questionText, onClose, onSubmit }: ReportModalProps) {
     const [reason, setReason] = useState('')
     const [isSubmitting, setIsSubmitting] = useState(false)
+
+    useEffect(() => {
+        const handleEsc = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') onClose()
+        }
+        window.addEventListener('keydown', handleEsc)
+        return () => window.removeEventListener('keydown', handleEsc)
+    }, [onClose])
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -30,8 +38,14 @@ export function ReportModal({ questionId, questionText, onClose, onSubmit }: Rep
     }
 
     return (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-            <div className="bg-zinc-900 rounded-xl border border-zinc-800 shadow-2xl max-w-md w-full">
+        <div
+            className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+            onClick={onClose}
+        >
+            <div
+                className="bg-zinc-900 rounded-xl border border-zinc-800 max-w-md w-full"
+                onClick={(e) => e.stopPropagation()}
+            >
                 <div className="flex items-center justify-between p-6 border-b border-zinc-800">
                     <div className="flex items-center gap-3">
                         <div className="p-2 bg-red-500/10 rounded-lg">
@@ -41,7 +55,7 @@ export function ReportModal({ questionId, questionText, onClose, onSubmit }: Rep
                     </div>
                     <button
                         onClick={onClose}
-                        className="p-2 hover:bg-zinc-800 rounded-lg transition-colors"
+                        className="p-2 hover:bg-zinc-800 rounded-lg transition-colors cursor-pointer"
                     >
                         <X className="w-5 h-5 text-zinc-400" />
                     </button>
@@ -75,20 +89,20 @@ export function ReportModal({ questionId, questionText, onClose, onSubmit }: Rep
                         <button
                             type="button"
                             onClick={onClose}
-                            className="flex-1 px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-white rounded-lg transition-colors"
+                            className="flex-1 px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-white rounded-lg transition-colors cursor-pointer"
                         >
                             Cancel
                         </button>
                         <button
                             type="submit"
                             disabled={!reason.trim() || isSubmitting}
-                            className="flex-1 px-4 py-2 bg-red-600 hover:bg-red-500 text-white rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="flex-1 px-4 py-2 bg-red-600 hover:bg-red-500 text-white rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                         >
                             {isSubmitting ? 'Submitting...' : 'Submit Report'}
                         </button>
                     </div>
                 </form>
-            </div>
-        </div>
+            </div >
+        </div >
     )
 }

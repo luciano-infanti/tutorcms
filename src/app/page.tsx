@@ -41,7 +41,7 @@ export default function GlobalGate() {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-zinc-950 text-zinc-100">
-            <div className="max-w-md w-full p-8 bg-zinc-900 rounded-xl border border-zinc-800 shadow-2xl">
+            <div className="max-w-md w-full p-8 bg-zinc-900 rounded-xl border border-zinc-800">
                 <div className="flex flex-col items-center mb-8">
                     <div className="p-3 bg-indigo-500/10 rounded-full mb-4">
                         <Lock className="w-8 h-8 text-indigo-500" />

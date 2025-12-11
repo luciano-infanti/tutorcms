@@ -38,13 +38,13 @@ export async function POST(request: Request) {
     }
 
     try {
-        const { question, answer, category } = await request.json()
+        const { question_text, answer_text, category } = await request.json()
 
         const { error } = await supabase
             .from('questions')
             .insert({
-                question_text: question,
-                answer_text: answer,
+                question_text,
+                answer_text,
                 category,
                 is_approved: true,
                 score: 0

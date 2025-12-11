@@ -2,27 +2,18 @@
 
 import { useState, useEffect } from 'react'
 import { useSession } from 'next-auth/react'
-import { AlertCircle, Users, Flag, MessageSquare, Edit, Trash2, Plus, Save, Lightbulb, Check, X } from 'lucide-react'
+import { AlertCircle, Users, Flag, Edit, Trash2, Plus, Lightbulb, Check, X, Archive, Save } from 'lucide-react'
 import { hasPermission } from '@/config/roles'
+
+import { CharacterCounter } from '@/components/ui/CharacterCounter'
+import { CustomDropdown } from '@/components/ui/CustomDropdown'
+import { SERVERS } from '@/config/constants'
 
 export default function AdminPage() {
     const { data: session, status } = useSession()
     const userRole = (session?.user as any)?.role || 'Tutor'
 
-    if (status === 'loading') {
-        return (
-            <div className="flex items-center justify-center min-h-[60vh]">
-                <div className="text-light-subtext dark:text-gemini-subtext animate-pulse">Loading session...</div>
-            </div>
-        )
-    }
-
-    const [activeTab, setActiveTab] = useState<'banner' | 'reports' | 'questions' | 'users' | 'suggestions'>('banner')
-
-    // Banner state
-    const [bannerMessage, setBannerMessage] = useState('')
-    const [isBannerActive, setIsBannerActive] = useState(false)
-    const [savingBanner, setSavingBanner] = useState(false)
+    const [activeTab, setActiveTab] = useState<'reports' | 'questions' | 'users' | 'suggestions' | 'archived'>('reports')
 
     // Reports state
     const [reports, setReports] = useState<any[]>([])
@@ -33,14 +24,47 @@ export default function AdminPage() {
     const [loadingQuestions, setLoadingQuestions] = useState(false)
     const [editingQuestion, setEditingQuestion] = useState<any>(null)
     const [newQuestion, setNewQuestion] = useState({ question: '', answer: '', category: 'General' })
+    const [categories, setCategories] = useState<any[]>([])
 
     // Users state
     const [users, setUsers] = useState<any[]>([])
     const [loadingUsers, setLoadingUsers] = useState(false)
+    const [editingUser, setEditingUser] = useState<any>(null)
 
     // Suggestions state
     const [suggestions, setSuggestions] = useState<any[]>([])
     const [loadingSuggestions, setLoadingSuggestions] = useState(false)
+
+    // Load data based on active tab
+    useEffect(() => {
+        if (status === 'authenticated' && hasPermission(userRole, 'canViewAdminDashboard')) {
+            if (activeTab === 'reports') loadReports()
+            if (activeTab === 'questions') {
+                loadQuestions()
+                fetchCategories()
+            }
+            if (activeTab === 'users') loadUsers()
+            if (activeTab === 'suggestions' || activeTab === 'archived') loadSuggestions()
+        }
+    }, [activeTab, status, userRole])
+
+    const fetchCategories = async () => {
+        try {
+            const res = await fetch('/api/categories')
+            const data = await res.json()
+            setCategories(data.categories || [])
+        } catch (error) {
+            console.error('Failed to fetch categories:', error)
+        }
+    }
+
+    if (status === 'loading') {
+        return (
+            <div className="flex items-center justify-center min-h-[60vh]">
+                <div className="text-light-subtext dark:text-gemini-subtext animate-pulse">Loading session...</div>
+            </div>
+        )
+    }
 
     // Check GM permission
     if (!hasPermission(userRole, 'canViewAdminDashboard')) {
@@ -53,43 +77,6 @@ export default function AdminPage() {
                 </div>
             </div>
         )
-    }
-
-    // Load data based on active tab
-    useEffect(() => {
-        if (activeTab === 'banner') loadBanner()
-        if (activeTab === 'reports') loadReports()
-        if (activeTab === 'questions') loadQuestions()
-        if (activeTab === 'users') loadUsers()
-        if (activeTab === 'suggestions') loadSuggestions()
-    }, [activeTab])
-
-    const loadBanner = async () => {
-        try {
-            const res = await fetch('/api/admin/banner')
-            const data = await res.json()
-            setBannerMessage(data.banner_message || '')
-            setIsBannerActive(data.is_banner_active || false)
-        } catch (error) {
-            console.error('Failed to load banner:', error)
-        }
-    }
-
-    const saveBanner = async () => {
-        setSavingBanner(true)
-        try {
-            const res = await fetch('/api/admin/banner', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ message: bannerMessage, isActive: isBannerActive })
-            })
-            if (res.ok) alert('Banner saved!')
-            else alert('Failed to save banner')
-        } catch (error) {
-            alert('Failed to save banner')
-        } finally {
-            setSavingBanner(false)
-        }
     }
 
     const loadReports = async () => {
@@ -177,6 +164,47 @@ export default function AdminPage() {
         }
     }
 
+    const saveUser = async (user: any) => {
+        try {
+            const res = await fetch('/api/admin/users', {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    userId: user.id,
+                    role: user.role,
+                    character_name: user.character_name,
+                    server: user.server
+                })
+            })
+            if (res.ok) {
+                loadUsers()
+                setEditingUser(null)
+                alert('User updated successfully!')
+            } else {
+                alert('Failed to update user')
+            }
+        } catch (error) {
+            console.error('Save user error:', error)
+            alert('Failed to update user')
+        }
+    }
+
+    const deleteUser = async (userId: string) => {
+        if (!confirm('Are you sure you want to delete this user? This action cannot be undone.')) return
+        try {
+            const res = await fetch(`/api/admin/users?id=${userId}`, { method: 'DELETE' })
+            if (res.ok) {
+                setUsers(prev => prev.filter(u => u.id !== userId))
+                alert('User deleted!')
+            } else {
+                alert('Failed to delete user')
+            }
+        } catch (error) {
+            console.error('Delete user error:', error)
+            alert('Failed to delete user')
+        }
+    }
+
     const loadSuggestions = async () => {
         setLoadingSuggestions(true)
         try {
@@ -205,8 +233,12 @@ export default function AdminPage() {
         }
     }
 
+    const filteredSuggestions = suggestions.filter(s =>
+        activeTab === 'archived' ? (s.status === 'rejected' || s.status === 'approved') : s.status === 'pending'
+    )
+
     return (
-        <div className="space-y-8 pt-4">
+        <div className="space-y-8 pt-4 max-w-5xl mx-auto">
             <div className="animate-fade-in-up">
                 <h1 className="text-3xl font-bold text-light-text dark:text-gemini-text">Admin Dashboard</h1>
                 <p className="text-light-subtext dark:text-gemini-subtext">Manage the system and moderate content.</p>
@@ -215,11 +247,11 @@ export default function AdminPage() {
             {/* Tabs */}
             <div className="flex gap-2 border-b border-light-border dark:border-gemini-surfaceHighlight overflow-x-auto no-scrollbar pb-1">
                 {[
-                    { id: 'banner', label: 'Global Banner', icon: MessageSquare },
                     { id: 'reports', label: 'Reports', icon: Flag },
                     { id: 'questions', label: 'Questions', icon: Edit },
                     { id: 'users', label: 'Users', icon: Users },
                     { id: 'suggestions', label: 'Suggestions', icon: Lightbulb },
+                    { id: 'archived', label: 'Archived', icon: Archive },
                 ].map(tab => (
                     <button
                         key={tab.id}
@@ -236,39 +268,7 @@ export default function AdminPage() {
             </div>
 
             {/* Tab Content */}
-            <div className="bg-white dark:bg-gemini-surface rounded-[24px] border border-light-border dark:border-gemini-surfaceHighlight p-6 sm:p-8 shadow-sm min-h-[400px]">
-                {activeTab === 'banner' && (
-                    <div className="space-y-6 max-w-2xl">
-                        <h2 className="text-xl font-bold text-light-text dark:text-gemini-text">Global Banner</h2>
-                        <div className="space-y-5">
-                            <div className="flex items-center gap-3 p-4 bg-gray-50 dark:bg-gemini-bg rounded-xl border border-light-border dark:border-gemini-surfaceHighlight">
-                                <input
-                                    type="checkbox"
-                                    checked={isBannerActive}
-                                    onChange={(e) => setIsBannerActive(e.target.checked)}
-                                    className="w-5 h-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                                />
-                                <label className="text-light-text dark:text-gemini-text font-medium">Banner Active</label>
-                            </div>
-                            <textarea
-                                value={bannerMessage}
-                                onChange={(e) => setBannerMessage(e.target.value)}
-                                placeholder="Enter banner message..."
-                                className="w-full px-4 py-3 bg-gray-50 dark:bg-gemini-bg border border-light-border dark:border-gemini-surfaceHighlight rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-light-text dark:text-gemini-text resize-none transition-all"
-                                rows={4}
-                            />
-                            <button
-                                onClick={saveBanner}
-                                disabled={savingBanner}
-                                className="flex items-center gap-2 px-6 py-2.5 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-medium transition-all shadow-sm hover:shadow-md disabled:opacity-50 disabled:shadow-none"
-                            >
-                                <Save className="w-4 h-4" />
-                                {savingBanner ? 'Saving...' : 'Save Banner'}
-                            </button>
-                        </div>
-                    </div>
-                )}
-
+            <div className="bg-white dark:bg-gemini-surface rounded-[24px] border border-light-border dark:border-gemini-surfaceHighlight p-6 sm:p-8 min-h-[400px]">
                 {activeTab === 'reports' && (
                     <div className="space-y-6">
                         <h2 className="text-xl font-bold text-light-text dark:text-gemini-text">Reports</h2>
@@ -300,13 +300,13 @@ export default function AdminPage() {
                                                 <div className="flex gap-2">
                                                     <button
                                                         onClick={() => resolveReport(report.id, 'resolved')}
-                                                        className="px-4 py-2 bg-green-600 hover:bg-green-500 text-white text-sm rounded-lg font-medium transition-colors shadow-sm"
+                                                        className="px-4 py-2 bg-green-600 hover:bg-green-500 text-white text-sm rounded-lg font-medium transition-colors"
                                                     >
                                                         Resolve
                                                     </button>
                                                     <button
                                                         onClick={() => resolveReport(report.id, 'dismissed')}
-                                                        className="px-4 py-2 bg-red-600 hover:bg-red-500 text-white text-sm rounded-lg font-medium transition-colors shadow-sm"
+                                                        className="px-4 py-2 bg-red-600 hover:bg-red-500 text-white text-sm rounded-lg font-medium transition-colors"
                                                     >
                                                         Dismiss
                                                     </button>
@@ -326,7 +326,7 @@ export default function AdminPage() {
                             <h2 className="text-xl font-bold text-light-text dark:text-gemini-text">Questions</h2>
                             <button
                                 onClick={() => setEditingQuestion({ question: '', answer: '', category: 'General' })}
-                                className="flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-medium shadow-sm hover:shadow-md transition-all"
+                                className="flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-medium transition-all"
                             >
                                 <Plus className="w-4 h-4" />
                                 Add Question
@@ -334,35 +334,50 @@ export default function AdminPage() {
                         </div>
 
                         {editingQuestion && (
-                            <div className="bg-gray-50 dark:bg-gemini-bg rounded-xl p-6 border border-blue-200 dark:border-blue-900/30 space-y-4 shadow-inner">
+                            <div className="bg-gray-50 dark:bg-gemini-bg rounded-xl p-6 border border-blue-200 dark:border-blue-900/30 space-y-4">
                                 <h3 className="font-semibold text-light-text dark:text-gemini-text mb-2">
                                     {editingQuestion.id ? 'Edit Question' : 'New Question'}
                                 </h3>
-                                <input
-                                    type="text"
-                                    value={editingQuestion.question_text || editingQuestion.question}
-                                    onChange={(e) => setEditingQuestion({ ...editingQuestion, question_text: e.target.value, question: e.target.value })}
-                                    placeholder="Question"
-                                    className="w-full px-4 py-3 bg-white dark:bg-gemini-surface border border-light-border dark:border-gemini-surfaceHighlight rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-light-text dark:text-gemini-text transition-all"
-                                />
-                                <textarea
-                                    value={editingQuestion.answer_text || editingQuestion.answer}
-                                    onChange={(e) => setEditingQuestion({ ...editingQuestion, answer_text: e.target.value, answer: e.target.value })}
-                                    placeholder="Answer"
-                                    className="w-full px-4 py-3 bg-white dark:bg-gemini-surface border border-light-border dark:border-gemini-surfaceHighlight rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-light-text dark:text-gemini-text resize-none transition-all"
-                                    rows={4}
-                                />
-                                <input
-                                    type="text"
-                                    value={editingQuestion.category}
-                                    onChange={(e) => setEditingQuestion({ ...editingQuestion, category: e.target.value })}
-                                    placeholder="Category"
-                                    className="w-full px-4 py-3 bg-white dark:bg-gemini-surface border border-light-border dark:border-gemini-surfaceHighlight rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-light-text dark:text-gemini-text transition-all"
-                                />
+                                <div>
+                                    <label className="block text-sm font-medium text-light-subtext dark:text-gemini-subtext mb-1">Question</label>
+                                    <input
+                                        type="text"
+                                        value={editingQuestion.question_text || editingQuestion.question}
+                                        onChange={(e) => setEditingQuestion({ ...editingQuestion, question_text: e.target.value, question: e.target.value })}
+                                        placeholder="Question"
+                                        className="w-full px-4 py-3 bg-white dark:bg-gemini-surface border border-light-border dark:border-gemini-surfaceHighlight rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-light-text dark:text-gemini-text transition-all"
+                                    />
+                                </div>
+                                <div>
+                                    <div className="flex justify-between items-center mb-1">
+                                        <label className="block text-sm font-medium text-light-subtext dark:text-gemini-subtext">Answer</label>
+                                        <CharacterCounter current={(editingQuestion.answer_text || editingQuestion.answer || '').length} max={248} />
+                                    </div>
+                                    <textarea
+                                        value={editingQuestion.answer_text || editingQuestion.answer}
+                                        onChange={(e) => setEditingQuestion({ ...editingQuestion, answer_text: e.target.value, answer: e.target.value })}
+                                        placeholder="Answer"
+                                        className={`w-full px-4 py-3 bg-white dark:bg-gemini-surface border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-light-text dark:text-gemini-text resize-none transition-all ${(editingQuestion.answer_text || editingQuestion.answer || '').length > 248
+                                            ? 'border-red-500 focus:ring-red-500/50'
+                                            : 'border-light-border dark:border-gemini-surfaceHighlight'
+                                            }`}
+                                        rows={6}
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-light-subtext dark:text-gemini-subtext mb-1">Category</label>
+                                    <CustomDropdown
+                                        options={categories.map(c => ({ value: c.name, label: c.name.charAt(0).toUpperCase() + c.name.slice(1).toLowerCase() }))}
+                                        value={editingQuestion.category}
+                                        onChange={(value) => setEditingQuestion({ ...editingQuestion, category: value })}
+                                        placeholder="Select a category"
+                                    />
+                                </div>
                                 <div className="flex gap-3 pt-2">
                                     <button
                                         onClick={() => saveQuestion(editingQuestion)}
-                                        className="px-6 py-2.5 bg-green-600 hover:bg-green-500 text-white rounded-xl font-medium shadow-sm transition-all"
+                                        disabled={(editingQuestion.answer_text || editingQuestion.answer || '').length > 248}
+                                        className="px-6 py-2.5 bg-green-600 hover:bg-green-500 disabled:bg-green-600/50 text-white rounded-xl font-medium transition-all"
                                     >
                                         Save
                                     </button>
@@ -422,12 +437,67 @@ export default function AdminPage() {
                 {activeTab === 'users' && (
                     <div className="space-y-6">
                         <h2 className="text-xl font-bold text-light-text dark:text-gemini-text">Users</h2>
+
+                        {editingUser && (
+                            <div className="bg-gray-50 dark:bg-gemini-bg rounded-xl p-6 border border-blue-200 dark:border-blue-900/30 space-y-4 shadow-inner">
+                                <h3 className="font-semibold text-light-text dark:text-gemini-text mb-2">
+                                    Edit User: {editingUser.email}
+                                </h3>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label className="block text-sm font-medium text-light-subtext dark:text-gemini-subtext mb-1">Character Name</label>
+                                        <input
+                                            type="text"
+                                            value={editingUser.character_name || ''}
+                                            onChange={(e) => setEditingUser({ ...editingUser, character_name: e.target.value })}
+                                            className="w-full px-4 py-2 bg-white dark:bg-gemini-surface border border-light-border dark:border-gemini-surfaceHighlight rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-light-text dark:text-gemini-text transition-all"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label className="block text-sm font-medium text-light-subtext dark:text-gemini-subtext mb-1">Server</label>
+                                        <CustomDropdown
+                                            options={SERVERS.map(s => ({ value: s, label: s }))}
+                                            value={editingUser.server || ''}
+                                            onChange={(value) => setEditingUser({ ...editingUser, server: value })}
+                                            placeholder="Select a server"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label className="block text-sm font-medium text-light-subtext dark:text-gemini-subtext mb-1">Role</label>
+                                        <select
+                                            value={editingUser.role}
+                                            onChange={(e) => setEditingUser({ ...editingUser, role: e.target.value })}
+                                            className="w-full px-4 py-2 bg-white dark:bg-gemini-surface border border-light-border dark:border-gemini-surfaceHighlight rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-light-text dark:text-gemini-text transition-all"
+                                        >
+                                            <option value="Tutor">Tutor</option>
+                                            <option value="Senior Tutor">Senior Tutor</option>
+                                            <option value="GM">GM</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div className="flex gap-3 pt-2">
+                                    <button
+                                        onClick={() => saveUser(editingUser)}
+                                        className="px-6 py-2.5 bg-green-600 hover:bg-green-500 text-white rounded-xl font-medium shadow-sm transition-all"
+                                    >
+                                        Save
+                                    </button>
+                                    <button
+                                        onClick={() => setEditingUser(null)}
+                                        className="px-6 py-2.5 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 rounded-xl font-medium transition-all"
+                                    >
+                                        Cancel
+                                    </button>
+                                </div>
+                            </div>
+                        )}
+
                         {loadingUsers ? (
                             <p className="text-light-subtext dark:text-gemini-subtext">Loading...</p>
                         ) : (
                             <div className="space-y-3 max-h-[600px] overflow-y-auto pr-2 custom-scrollbar">
                                 {users.map(user => (
-                                    <div key={user.id} className="bg-gray-50 dark:bg-gemini-bg rounded-xl p-4 border border-light-border dark:border-gemini-surfaceHighlight flex items-center justify-between hover:shadow-sm transition-all">
+                                    <div key={user.id} className="bg-gray-50 dark:bg-gemini-bg rounded-xl p-4 border border-light-border dark:border-gemini-surfaceHighlight flex items-center justify-between hover:shadow-sm transition-all group">
                                         <div className="flex items-center gap-4">
                                             {user.avatar_url ? (
                                                 <img src={user.avatar_url} alt="" className="w-10 h-10 rounded-full object-cover ring-2 ring-white dark:ring-gemini-surface" />
@@ -443,12 +513,32 @@ export default function AdminPage() {
                                                 </p>
                                             </div>
                                         </div>
-                                        <span className={`px-3 py-1 rounded-full text-xs font-semibold ${user.role === 'GM' ? 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400' :
-                                            user.role === 'Senior Tutor' ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400' :
-                                                'bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300'
-                                            }`}>
-                                            {user.role}
-                                        </span>
+                                        <div className="flex items-center gap-4">
+                                            <span className={`px-3 py-1 rounded-full text-xs font-semibold ${user.role === 'GM' ? 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400' :
+                                                user.role === 'Senior Tutor' ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400' :
+                                                    'bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300'
+                                                }`}>
+                                                {user.role}
+                                            </span>
+
+                                            {/* Action Buttons (Only visible to GMs, and page is GM-only anyway) */}
+                                            <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                <button
+                                                    onClick={() => setEditingUser(user)}
+                                                    className="p-2 hover:bg-blue-100 dark:hover:bg-blue-900/30 rounded-lg text-blue-600 dark:text-blue-400 transition-colors"
+                                                    title="Edit User"
+                                                >
+                                                    <Edit className="w-4 h-4" />
+                                                </button>
+                                                <button
+                                                    onClick={() => deleteUser(user.id)}
+                                                    className="p-2 hover:bg-red-100 dark:hover:bg-red-900/30 rounded-lg text-red-600 dark:text-red-400 transition-colors"
+                                                    title="Delete User"
+                                                >
+                                                    <Trash2 className="w-4 h-4" />
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 ))}
                             </div>
@@ -456,18 +546,20 @@ export default function AdminPage() {
                     </div>
                 )}
 
-                {activeTab === 'suggestions' && (
+                {(activeTab === 'suggestions' || activeTab === 'archived') && (
                     <div className="space-y-6">
-                        <h2 className="text-xl font-bold text-light-text dark:text-gemini-text">Suggestions</h2>
+                        <h2 className="text-xl font-bold text-light-text dark:text-gemini-text">
+                            {activeTab === 'archived' ? 'Archived Suggestions' : 'Suggestions'}
+                        </h2>
                         {loadingSuggestions ? (
                             <p className="text-light-subtext dark:text-gemini-subtext">Loading...</p>
-                        ) : suggestions.length === 0 ? (
+                        ) : filteredSuggestions.length === 0 ? (
                             <div className="text-center py-12 text-light-subtext dark:text-gemini-subtext bg-gray-50 dark:bg-gemini-bg rounded-xl border border-dashed border-light-border dark:border-gemini-surfaceHighlight">
-                                No pending suggestions
+                                {activeTab === 'archived' ? 'No archived suggestions' : 'No pending suggestions'}
                             </div>
                         ) : (
                             <div className="space-y-3">
-                                {suggestions.map(suggestion => (
+                                {filteredSuggestions.map(suggestion => (
                                     <div key={suggestion.id} className="bg-gray-50 dark:bg-gemini-bg rounded-xl p-5 border border-light-border dark:border-gemini-surfaceHighlight hover:border-blue-200 dark:hover:border-blue-900/30 transition-colors">
                                         <div className="flex justify-between items-start gap-4">
                                             <div className="flex-1">

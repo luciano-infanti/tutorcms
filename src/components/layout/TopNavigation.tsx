@@ -4,7 +4,9 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useSession, signOut } from 'next-auth/react'
 import { useTheme } from '@/components/providers/ThemeProvider'
-import { Sun, Moon, LogOut, Shield } from 'lucide-react'
+import { Sun, Moon, LogOut, Shield, User, Scale, Info, Sparkles, ExternalLink } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { supabase } from '@/lib/supabase'
 
 export function TopNavigation() {
     const pathname = usePathname()
@@ -13,6 +15,27 @@ export function TopNavigation() {
     const userRole = (session?.user as any)?.role
     const isAdmin = userRole === 'GM'
 
+    const [userInfo, setUserInfo] = useState<{ character_name: string | null, server: string | null }>({ character_name: null, server: null })
+    const [showDropdown, setShowDropdown] = useState(false)
+    const [avatarError, setAvatarError] = useState(false)
+
+    useEffect(() => {
+        const fetchUserInfo = async () => {
+            if (session?.user?.email) {
+                const { data } = await supabase
+                    .from('users')
+                    .select('character_name, server')
+                    .eq('email', session.user.email)
+                    .single()
+
+                if (data) {
+                    setUserInfo(data)
+                }
+            }
+        }
+        fetchUserInfo()
+    }, [session])
+
     return (
         <nav className="fixed top-0 w-full z-50 bg-light-bg/90 dark:bg-gemini-bg/90 backdrop-blur-md border-b border-light-border dark:border-gemini-surfaceHighlight transition-colors duration-300">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,12 +43,14 @@ export function TopNavigation() {
 
                     {/* Logo Area */}
                     <Link href="/dashboard" className="flex items-center gap-3 cursor-pointer group">
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg shadow-lg group-hover:scale-105 transition-transform">
-                            T
-                        </div>
+                        <img
+                            src="https://www.tibiawiki.com.br/images/9/94/The_Holy_Tible.gif"
+                            alt="RubinOT"
+                            className="w-8 h-8 object-contain group-hover:scale-105 transition-transform cursor-pointer"
+                        />
                         <div className="flex flex-col">
-                            <span className="font-semibold text-lg leading-none tracking-tight text-light-text dark:text-gemini-text">Tutor Helper</span>
-                            <span className="text-[10px] uppercase tracking-wider text-light-subtext dark:text-gemini-subtext font-medium">Rubinot Staff</span>
+                            <span className="font-semibold text-lg leading-none tracking-tight text-light-text dark:text-gemini-text">RubinOT</span>
+                            <span className="text-[10px] uppercase tracking-wider text-light-subtext dark:text-gemini-subtext font-medium">Staff Helper</span>
                         </div>
                     </Link>
 
@@ -34,27 +59,46 @@ export function TopNavigation() {
                         <Link
                             href="/dashboard"
                             className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${pathname === '/dashboard'
-                                    ? 'bg-white dark:bg-gemini-surface shadow-sm text-blue-600 dark:text-gemini-accent border border-light-border dark:border-gemini-border'
-                                    : 'text-light-subtext dark:text-gemini-subtext hover:bg-gray-200 dark:hover:bg-gemini-surfaceHighlight'
+                                ? 'bg-white dark:bg-gemini-surface text-blue-600 dark:text-gemini-accent border border-light-border dark:border-gemini-border'
+                                : 'text-light-subtext dark:text-gemini-subtext hover:bg-gray-200 dark:hover:bg-gemini-surfaceHighlight cursor-pointer'
                                 }`}
                         >
                             FAQ Dashboard
                         </Link>
                         <Link
-                            href="/documents"
-                            className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${pathname === '/documents'
-                                    ? 'bg-white dark:bg-gemini-surface shadow-sm text-blue-600 dark:text-gemini-accent border border-light-border dark:border-gemini-border'
-                                    : 'text-light-subtext dark:text-gemini-subtext hover:bg-gray-200 dark:hover:bg-gemini-surfaceHighlight'
+                            href="/rules"
+                            className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${pathname === '/rules'
+                                ? 'bg-white dark:bg-gemini-surface text-blue-600 dark:text-gemini-accent border border-light-border dark:border-gemini-border'
+                                : 'text-light-subtext dark:text-gemini-subtext hover:bg-gray-200 dark:hover:bg-gemini-surfaceHighlight cursor-pointer'
                                 }`}
                         >
-                            Documents
+                            Rules
                         </Link>
+                        <Link
+                            href="/server-info"
+                            className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${pathname === '/server-info'
+                                ? 'bg-white dark:bg-gemini-surface text-blue-600 dark:text-gemini-accent border border-light-border dark:border-gemini-border'
+                                : 'text-light-subtext dark:text-gemini-subtext hover:bg-gray-200 dark:hover:bg-gemini-surfaceHighlight cursor-pointer'
+                                }`}
+                        >
+                            Server Info
+                        </Link>
+                        <Link
+                            href="/extras"
+                            className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${pathname === '/extras'
+                                ? 'bg-white dark:bg-gemini-surface text-blue-600 dark:text-gemini-accent border border-light-border dark:border-gemini-border'
+                                : 'text-light-subtext dark:text-gemini-subtext hover:bg-gray-200 dark:hover:bg-gemini-surfaceHighlight cursor-pointer'
+                                }`}
+                        >
+                            Extras
+                        </Link>
+
                         {isAdmin && (
                             <Link
                                 href="/admin"
                                 className={`px-4 py-2 rounded-full text-sm font-medium transition-colors flex items-center gap-2 ${pathname === '/admin'
-                                        ? 'bg-white dark:bg-gemini-surface shadow-sm text-red-500 dark:text-red-400 border border-light-border dark:border-gemini-border'
-                                        : 'text-light-subtext dark:text-gemini-subtext hover:bg-gray-200 dark:hover:bg-gemini-surfaceHighlight'
+                                    ? 'bg-white dark:bg-gemini-surface text-red-500 dark:text-red-400 border border-light-border dark:border-gemini-border'
+                                    : 'text-light-subtext dark:text-gemini-subtext hover:bg-gray-200 dark:hover:bg-gemini-surfaceHighlight cursor-pointer'
                                     }`}
                             >
                                 <Shield className="w-4 h-4" />
@@ -64,42 +108,91 @@ export function TopNavigation() {
                     </div>
 
                     {/* Right Actions */}
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-4">
+                        {/* Wiki Link */}
+                        <a
+                            href="https://wiki.rubinot.com/pt-BR"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 px-4 py-2 rounded-full hover:bg-gray-100 dark:hover:bg-gemini-surfaceHighlight transition-colors text-light-subtext dark:text-gemini-subtext cursor-pointer"
+                            title="RubinOT Wiki"
+                        >
+                            <ExternalLink className="w-5 h-5" />
+                            <span className="text-sm font-medium">RubinOT Wiki</span>
+                        </a>
+
                         {/* Theme Toggle */}
                         <button
                             onClick={toggleTheme}
-                            className="p-2.5 rounded-full text-light-subtext dark:text-gemini-subtext hover:bg-gray-200 dark:hover:bg-gemini-surfaceHighlight focus:outline-none transition-colors"
-                            aria-label="Toggle Dark Mode"
+                            className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gemini-surfaceHighlight transition-colors relative overflow-hidden w-10 h-10 flex items-center justify-center cursor-pointer"
+                            title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
                         >
-                            {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+                            <div className="relative w-5 h-5">
+                                <Sun className={`w-5 h-5 text-yellow-500 absolute inset-0 transition-all duration-500 transform ${theme === 'dark' ? 'opacity-0 rotate-90 scale-0' : 'opacity-100 rotate-0 scale-100'}`} />
+                                <Moon className={`w-5 h-5 text-blue-400 absolute inset-0 transition-all duration-500 transform ${theme === 'light' ? 'opacity-0 -rotate-90 scale-0' : 'opacity-100 rotate-0 scale-100'}`} />
+                            </div>
                         </button>
 
-                        {/* Profile Avatar */}
-                        <Link href="/profile">
+                        {/* User Info & Avatar Dropdown */}
+                        <div
+                            className="relative flex items-center gap-3"
+                            onMouseEnter={() => setShowDropdown(true)}
+                            onMouseLeave={() => setShowDropdown(false)}
+                        >
+                            {/* User Info */}
+                            <div className="hidden sm:flex flex-col items-end">
+                                <span className="text-sm font-medium text-light-text dark:text-gemini-text">
+                                    {userInfo.character_name || session?.user?.name || 'User'}
+                                </span>
+                                <span className="text-xs text-light-subtext dark:text-gemini-subtext">
+                                    {userInfo.server || 'No Server'}
+                                </span>
+                            </div>
+
+                            {/* Avatar */}
                             <div className="w-9 h-9 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-[2px] cursor-pointer hover:scale-105 transition-transform">
                                 <div className="w-full h-full rounded-full bg-white dark:bg-gemini-surface flex items-center justify-center overflow-hidden">
-                                    {session?.user?.image ? (
-                                        <img src={session.user.image} alt="User" className="w-full h-full object-cover" />
+                                    {session?.user?.image && !avatarError ? (
+                                        <img
+                                            src={session.user.image}
+                                            alt="User"
+                                            className="w-full h-full object-cover"
+                                            onError={() => setAvatarError(true)}
+                                        />
                                     ) : (
-                                        <div className="w-full h-full bg-zinc-800 flex items-center justify-center text-xs text-white">
-                                            {session?.user?.name?.[0] || 'U'}
+                                        <div className="w-full h-full bg-zinc-800 flex items-center justify-center text-xs font-medium text-white">
+                                            {session?.user?.name
+                                                ? session.user.name.split(' ').map(n => n[0]).slice(0, 2).join('').toUpperCase()
+                                                : 'U'}
                                         </div>
                                     )}
                                 </div>
                             </div>
-                        </Link>
 
-                        {/* Sign Out (Small) */}
-                        <button
-                            onClick={() => signOut({ callbackUrl: '/' })}
-                            className="p-2 rounded-full text-light-subtext dark:text-gemini-subtext hover:bg-red-500/10 hover:text-red-500 transition-colors"
-                            title="Sign Out"
-                        >
-                            <LogOut className="w-5 h-5" />
-                        </button>
+                            {/* Dropdown Menu */}
+                            {showDropdown && (
+                                <div className="absolute top-full right-0 mt-2 w-48 bg-white dark:bg-gemini-surface rounded-xl shadow-lg border border-light-border dark:border-gemini-surfaceHighlight py-1 animate-fade-in z-50">
+                                    <Link
+                                        href="/profile"
+                                        className="flex items-center gap-2 px-4 py-2 text-sm text-light-text dark:text-gemini-text hover:bg-gray-100 dark:hover:bg-white/5 transition-colors cursor-pointer"
+                                    >
+                                        <User className="w-4 h-4" />
+                                        Profile
+                                    </Link>
+                                    <button
+                                        onClick={() => signOut({ callbackUrl: '/' })}
+                                        className="w-full flex items-center gap-2 px-4 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors text-left cursor-pointer"
+                                    >
+                                        <LogOut className="w-4 h-4" />
+                                        Sign Out
+                                    </button>
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>
         </nav>
     )
 }
+

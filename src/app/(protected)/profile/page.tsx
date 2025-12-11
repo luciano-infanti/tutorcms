@@ -3,11 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useSession } from 'next-auth/react'
 import { User, Save } from 'lucide-react'
-
-const SERVERS = [
-    "Auroria", "Belaria", "Bellum", "Elysian", "Lunarian",
-    "Mystian", "Solarian", "Spectrum", "Tenebrium", "Vesperia"
-]
+import { SERVERS } from '@/config/constants'
 
 export default function ProfilePage() {
     const { data: session } = useSession()
@@ -15,6 +11,7 @@ export default function ProfilePage() {
     const [server, setServer] = useState('Auroria')
     const [isSaving, setIsSaving] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
+    const [avatarError, setAvatarError] = useState(false)
 
     useEffect(() => {
         const fetchProfile = async () => {
@@ -44,15 +41,15 @@ export default function ProfilePage() {
                 body: JSON.stringify({ characterName: charName, server })
             })
 
-            if (res.ok) {
-                alert('Profile updated successfully!')
-            } else {
+            if (!res.ok) {
                 const data = await res.json()
-                alert(data.error || 'Failed to update profile')
+                throw new Error(data.error || 'Failed to update profile')
             }
-        } catch (error) {
+
+            alert('Profile updated successfully!')
+        } catch (error: any) {
             console.error('Save error:', error)
-            alert('Failed to update profile')
+            alert(error.message || 'Failed to update profile')
         } finally {
             setIsSaving(false)
         }
@@ -73,14 +70,23 @@ export default function ProfilePage() {
                 <p className="text-light-subtext dark:text-gemini-subtext">Manage your tutor identity.</p>
             </div>
 
-            <div className="bg-white dark:bg-gemini-surface rounded-[24px] border border-light-border dark:border-gemini-surfaceHighlight p-6 sm:p-8 space-y-8 shadow-sm">
+            <div className="bg-white dark:bg-gemini-surface rounded-[24px] border border-light-border dark:border-gemini-surfaceHighlight p-6 sm:p-8 space-y-8">
                 <div className="flex items-center gap-5">
                     <div className="w-20 h-20 rounded-full p-[2px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
                         <div className="w-full h-full rounded-full bg-white dark:bg-gemini-surface overflow-hidden flex items-center justify-center">
-                            {session?.user?.image ? (
-                                <img src={session.user.image} alt="Avatar" className="w-full h-full object-cover" />
+                            {session?.user?.image && !avatarError ? (
+                                <img
+                                    src={session.user.image}
+                                    alt="Avatar"
+                                    className="w-full h-full object-cover"
+                                    onError={() => setAvatarError(true)}
+                                />
                             ) : (
-                                <User className="w-8 h-8 text-gray-400" />
+                                <div className="w-full h-full bg-zinc-800 flex items-center justify-center text-2xl font-medium text-white">
+                                    {session?.user?.name
+                                        ? session.user.name.split(' ').map(n => n[0]).slice(0, 2).join('').toUpperCase()
+                                        : <User className="w-8 h-8 text-gray-400" />}
+                                </div>
                             )}
                         </div>
                     </div>

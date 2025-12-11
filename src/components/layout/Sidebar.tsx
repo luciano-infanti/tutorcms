@@ -3,14 +3,16 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useSession } from 'next-auth/react'
-import { LayoutDashboard, User, FileText, Shield, LogOut, Lightbulb } from 'lucide-react'
+import { LayoutDashboard, User, FileText, Shield, LogOut, Lightbulb, Scale, Info, Sparkles, ExternalLink } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { signOut } from 'next-auth/react'
 
 const navItems = [
     { name: 'FAQ Dashboard', href: '/dashboard', icon: LayoutDashboard },
+    { name: 'Rules', href: '/rules', icon: Scale },
+    { name: 'Server Info', href: '/server-info', icon: Info },
+    { name: 'Extras', href: '/extras', icon: Sparkles },
     { name: 'Profile', href: '/profile', icon: User },
-    { name: 'Documents', href: '/documents', icon: FileText },
 ]
 
 const adminItem = { name: 'Admin Panel', href: '/admin', icon: Shield }
@@ -41,7 +43,7 @@ export function Sidebar() {
                                 "flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors",
                                 isActive
                                     ? "bg-indigo-500/10 text-indigo-400"
-                                    : "text-zinc-400 hover:bg-zinc-800 hover:text-zinc-100"
+                                    : "text-zinc-400 hover:bg-zinc-800 hover:text-zinc-100 cursor-pointer"
                             )}
                         >
                             <Icon className="w-5 h-5" />
@@ -59,7 +61,7 @@ export function Sidebar() {
                                 "flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors",
                                 pathname === adminItem.href
                                     ? "bg-red-500/10 text-red-400"
-                                    : "text-zinc-400 hover:bg-zinc-800 hover:text-zinc-100"
+                                    : "text-zinc-400 hover:bg-zinc-800 hover:text-zinc-100 cursor-pointer"
                             )}
                         >
                             <Shield className="w-5 h-5" />
@@ -69,10 +71,22 @@ export function Sidebar() {
                 )}
             </nav>
 
+            <div className="px-4 py-2">
+                <a
+                    href="https://wiki.rubinot.com/pt-BR"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-zinc-400 hover:bg-zinc-800 hover:text-zinc-100 transition-colors cursor-pointer"
+                >
+                    <ExternalLink className="w-5 h-5" />
+                    RubinOT Wiki
+                </a>
+            </div>
+
             <div className="p-4 border-t border-zinc-800">
                 <button
                     onClick={() => signOut({ callbackUrl: '/' })}
-                    className="flex items-center gap-3 px-4 py-3 w-full rounded-lg text-sm font-medium text-zinc-400 hover:bg-zinc-800 hover:text-zinc-100 transition-colors"
+                    className="flex items-center gap-3 px-4 py-3 w-full rounded-lg text-sm font-medium text-zinc-400 hover:bg-zinc-800 hover:text-zinc-100 transition-colors cursor-pointer"
                 >
                     <LogOut className="w-5 h-5" />
                     Sign Out

@@ -6,7 +6,7 @@ import { LogIn } from "lucide-react"
 export function LoginScreen() {
     return (
         <div className="min-h-screen flex items-center justify-center bg-zinc-950 text-zinc-100">
-            <div className="text-center space-y-6 p-8 bg-zinc-900 rounded-xl border border-zinc-800 shadow-2xl max-w-md w-full">
+            <div className="text-center space-y-6 p-8 bg-zinc-900 rounded-xl border border-zinc-800 max-w-md w-full">
                 <div className="flex justify-center mb-4">
                     <div className="p-3 bg-indigo-500/10 rounded-full">
                         <LogIn className="w-8 h-8 text-indigo-500" />
