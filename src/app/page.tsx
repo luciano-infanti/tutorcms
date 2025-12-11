@@ -46,7 +46,9 @@ export default function GlobalGate() {
                     <div className="p-3 bg-indigo-500/10 rounded-full mb-4">
                         <Lock className="w-8 h-8 text-indigo-500" />
                     </div>
-                    <h1 className="text-2xl font-bold text-center">Sejam Bem Vindo a Faq do RubinOT</h1>
+                    <h1 className="text-2xl font-bold text-center">
+                        Sejam Bem Vindo a Faq do <span style={{ color: '#ffb808' }}>RubinOT</span>
+                    </h1>
                     <p className="text-zinc-400 text-center mt-2">
                         Please enter the global access password to continue.
                     </p>
