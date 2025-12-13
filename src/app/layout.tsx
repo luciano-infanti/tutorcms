@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Rubinot Tutor Helper",
-  description: "Knowledge base and utility tool for Rubinot Tutors.",
+  description: "Knowledge base and utility tool for RubinOT Tutors.",
 };
 
 export default function RootLayout({
