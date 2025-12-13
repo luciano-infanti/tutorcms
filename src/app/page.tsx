@@ -40,7 +40,19 @@ export default function GlobalGate() {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-zinc-950 text-zinc-100">
+        <div className="min-h-screen flex flex-col items-center justify-center bg-zinc-950 text-zinc-100 py-8">
+            {/* Logo no topo */}
+            <div className="mb-8 flex justify-center">
+                <img
+                    src="/image4.png"
+                    alt="Logo"
+                    width={250}
+                    height={250}
+                    className="object-contain"
+                    style={{ maxWidth: '250px', maxHeight: '250px' }}
+                />
+            </div>
+            
             <div className="max-w-md w-full p-8 bg-zinc-900 rounded-xl border border-zinc-800">
                 <div className="flex flex-col items-center mb-8">
                     <div className="p-3 bg-indigo-500/10 rounded-full mb-4">
