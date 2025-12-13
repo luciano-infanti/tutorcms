@@ -59,11 +59,12 @@ export const authOptions: NextAuthOptions = {
                         // This prevents blocking authentication
                     }
                 } else {
-                    // Update avatar if user exists (do NOT overwrite role)
+                    // Update avatar and last_seen if user exists
                     const { error: updateError } = await supabase
                         .from('users')
                         .update({
                             avatar_url: user.image || null,
+                            last_seen: new Date().toISOString(),
                         })
                         .eq('email', user.email)
 

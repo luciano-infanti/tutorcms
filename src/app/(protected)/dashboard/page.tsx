@@ -121,8 +121,12 @@ export default function DashboardPage() {
             groups[q.category].push(q)
         })
 
-        // Sort categories alphabetically
-        return Object.keys(groups).sort().reduce((acc, key) => {
+        // Sort categories alphabetically, but "Winter Update 2025" first
+        return Object.keys(groups).sort((a, b) => {
+            if (a.includes('Winter Update 2025')) return -1
+            if (b.includes('Winter Update 2025')) return 1
+            return a.localeCompare(b)
+        }).reduce((acc, key) => {
             acc[key] = groups[key]
             return acc
         }, {} as Record<string, Question[]>)

@@ -18,6 +18,7 @@ export interface Database {
                     server: string | null
                     avatar_url: string | null
                     created_at: string
+                    last_seen: string | null
                 }
                 Insert: {
                     id: string
