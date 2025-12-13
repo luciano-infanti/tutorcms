@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Lock } from 'lucide-react'
-import Image from 'next/image'
 
 export default function GlobalGate() {
     const [password, setPassword] = useState('')
@@ -44,16 +43,16 @@ export default function GlobalGate() {
         <div className="min-h-screen flex flex-col items-center justify-center bg-zinc-950 text-zinc-100 py-8">
             {/* Logo no topo */}
             <div className="mb-8 flex justify-center">
-                <Image
+                <img
                     src="/image4.png"
                     alt="Logo"
                     width={250}
                     height={250}
                     className="object-contain"
-                    priority
-                    unoptimized
+                    style={{ maxWidth: '250px', maxHeight: '250px', width: 'auto', height: 'auto' }}
                     onError={(e) => {
                         console.error('Erro ao carregar imagem image4.png');
+                        console.error('Caminho tentado:', e.currentTarget.src);
                     }}
                     onLoad={() => {
                         console.log('Imagem image4.png carregada com sucesso');
