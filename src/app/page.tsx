@@ -1,13 +1,28 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { Lock } from 'lucide-react'
 
 export default function GlobalGate() {
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
+    const [imageError, setImageError] = useState(false)
     const router = useRouter()
+
+    useEffect(() => {
+        // Verificar se a imagem está acessível
+        const img = new Image()
+        img.onload = () => {
+            setImageError(false)
+            console.log('Imagem carregada com sucesso')
+        }
+        img.onerror = () => {
+            setImageError(true)
+            console.error('Erro ao carregar imagem: /image4.png')
+        }
+        img.src = '/image4.png'
+    }, [])
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -43,21 +58,21 @@ export default function GlobalGate() {
         <div className="min-h-screen flex flex-col items-center bg-zinc-950 text-zinc-100 py-8">
             {/* Logo no topo */}
             <div className="mb-12 mt-8 flex justify-center">
-                <img
-                    src="/image4.png"
-                    alt="Logo"
-                    width={220}
-                    height={220}
-                    className="object-contain"
-                    style={{ maxWidth: '220px', maxHeight: '220px', width: 'auto', height: 'auto' }}
-                    onError={(e) => {
-                        console.error('Erro ao carregar imagem:', e);
-                        e.currentTarget.style.display = 'none';
-                    }}
-                    onLoad={() => {
-                        console.log('Imagem carregada com sucesso');
-                    }}
-                />
+                {!imageError ? (
+                    <img
+                        src="/image4.png"
+                        alt="Logo"
+                        width={220}
+                        height={220}
+                        className="object-contain"
+                        style={{ maxWidth: '220px', maxHeight: '220px' }}
+                        onError={() => setImageError(true)}
+                    />
+                ) : (
+                    <div className="w-[220px] h-[220px] flex items-center justify-center bg-zinc-800 rounded-lg border border-zinc-700">
+                        <p className="text-zinc-500 text-sm">Imagem não encontrada</p>
+                    </div>
+                )}
             </div>
             
             {/* Formulário centralizado verticalmente */}
