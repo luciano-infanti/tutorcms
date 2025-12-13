@@ -49,8 +49,14 @@ export default function GlobalGate() {
                     width={220}
                     height={220}
                     className="object-contain"
-                    style={{ maxWidth: '220px', maxHeight: '220px' }}
-                    loading="eager"
+                    style={{ maxWidth: '220px', maxHeight: '220px', width: 'auto', height: 'auto' }}
+                    onError={(e) => {
+                        console.error('Erro ao carregar imagem:', e);
+                        e.currentTarget.style.display = 'none';
+                    }}
+                    onLoad={() => {
+                        console.log('Imagem carregada com sucesso');
+                    }}
                 />
             </div>
             

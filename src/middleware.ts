@@ -4,6 +4,12 @@ import type { NextRequest } from 'next/server'
 export function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname
   
+  // Permitir arquivos estáticos (imagens, fontes, etc.)
+  const isStaticFile = path.match(/\.(png|jpg|jpeg|gif|svg|ico|webp|woff|woff2|ttf|eot)$/i)
+  if (isStaticFile) {
+    return NextResponse.next()
+  }
+  
   // 1. Check for Global Site Access
   const siteAccessCookie = request.cookies.get('site_access_token')
   const isGlobalGate = path === '/'
@@ -30,7 +36,8 @@ export const config = {
      * - _next/static (static files)
      * - _next/image (image optimization files)
      * - favicon.ico (favicon file)
+     * - static files (images, fonts, etc.)
      */
-    '/((?!api|_next/static|_next/image|favicon.ico).*)',
+    '/((?!api|_next/static|_next/image|favicon.ico|.*\\.(png|jpg|jpeg|gif|svg|ico|webp|woff|woff2|ttf|eot)$).*)',
   ],
 }
