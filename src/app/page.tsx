@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Lock } from 'lucide-react'
-import Image from 'next/image'
 
 export default function GlobalGate() {
     const [password, setPassword] = useState('')
@@ -44,14 +43,14 @@ export default function GlobalGate() {
         <div className="min-h-screen flex flex-col items-center bg-zinc-950 text-zinc-100 py-8">
             {/* Logo no topo */}
             <div className="mb-12 mt-8 flex justify-center">
-                <Image
+                <img
                     src="/image4.png"
                     alt="Logo"
                     width={220}
                     height={220}
                     className="object-contain"
-                    priority
-                    unoptimized
+                    style={{ maxWidth: '220px', maxHeight: '220px' }}
+                    loading="eager"
                 />
             </div>
             
