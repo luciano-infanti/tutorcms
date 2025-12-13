@@ -44,13 +44,13 @@ export default function GlobalGate() {
         <div className="min-h-screen flex flex-col items-center justify-center bg-zinc-950 text-zinc-100">
             {/* Logo */}
             <div className="mb-8">
-                <Image
+                <img
                     src="/image4.png"
                     alt="Logo"
-                    width={200}
-                    height={200}
+                    width={150}
+                    height={150}
                     className="object-contain"
-                    priority
+                    style={{ maxWidth: '150px', maxHeight: '150px' }}
                 />
             </div>
             
