@@ -16,12 +16,17 @@ export function middleware(request: NextRequest) {
     return NextResponse.next()
   }
   
+  // Permitir rotas do Next.js e API
+  if (path.startsWith('/api') || path.startsWith('/_next')) {
+    return NextResponse.next()
+  }
+  
   // 1. Check for Global Site Access
   const siteAccessCookie = request.cookies.get('site_access_token')
   const isGlobalGate = path === '/'
   
   // If no access token and not on the gate page, redirect to gate
-  if (!siteAccessCookie && !isGlobalGate && !path.startsWith('/api') && !path.startsWith('/_next')) {
+  if (!siteAccessCookie && !isGlobalGate) {
     return NextResponse.redirect(new URL('/', request.url))
   }
 
@@ -37,14 +42,9 @@ export function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     /*
-     * Match all request paths except for the ones starting with:
-     * - api (API routes)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     * - static files (images, fonts, etc.)
-     * - arquivos específicos da pasta public
+     * Match all request paths except for static files
+     * We handle exclusions in the middleware function itself
      */
-    '/((?!api|_next/static|_next/image|favicon.ico|image4|background|.*\\.(png|jpg|jpeg|gif|svg|ico|webp|woff|woff2|ttf|eot)$).*)',
+    '/(.*)',
   ],
 }
