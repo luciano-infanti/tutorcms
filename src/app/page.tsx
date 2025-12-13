@@ -47,8 +47,8 @@ export default function GlobalGate() {
                 <Image
                     src="/image4.png"
                     alt="Logo"
-                    width={200}
-                    height={200}
+                    width={220}
+                    height={220}
                     className="object-contain"
                     priority
                     unoptimized
