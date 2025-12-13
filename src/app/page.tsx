@@ -44,15 +44,16 @@ export default function GlobalGate() {
             {/* Logo no topo */}
             <div className="mb-8 flex justify-center">
                 <img
-                    src="/image4.png"
+                    src="/api/image/image4"
                     alt="Logo"
                     width={250}
                     height={250}
                     className="object-contain"
-                    style={{ maxWidth: '250px', maxHeight: '250px', width: 'auto', height: 'auto' }}
+                    style={{ maxWidth: '250px', maxHeight: '250px', width: 'auto', height: 'auto', display: 'block' }}
                     onError={(e) => {
-                        console.error('Erro ao carregar imagem image4.png');
-                        console.error('Caminho tentado:', e.currentTarget.src);
+                        console.error('Erro ao carregar imagem via API, tentando caminho direto...');
+                        // Fallback para caminho direto
+                        e.currentTarget.src = '/image4.png?v=' + Date.now();
                     }}
                     onLoad={() => {
                         console.log('Imagem image4.png carregada com sucesso');

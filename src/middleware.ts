@@ -4,9 +4,15 @@ import type { NextRequest } from 'next/server'
 export function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname
   
-  // Permitir arquivos estáticos (imagens, fontes, etc.)
+  // IMPORTANTE: Permitir arquivos estáticos ANTES de qualquer outra verificação
+  // Isso garante que imagens, fontes e outros arquivos estáticos sejam servidos
   const isStaticFile = path.match(/\.(png|jpg|jpeg|gif|svg|ico|webp|woff|woff2|ttf|eot)$/i)
   if (isStaticFile) {
+    return NextResponse.next()
+  }
+  
+  // Permitir também arquivos da pasta public (sem extensão conhecida)
+  if (path.startsWith('/image4') || path.startsWith('/background')) {
     return NextResponse.next()
   }
   
@@ -37,7 +43,8 @@ export const config = {
      * - _next/image (image optimization files)
      * - favicon.ico (favicon file)
      * - static files (images, fonts, etc.)
+     * - arquivos específicos da pasta public
      */
-    '/((?!api|_next/static|_next/image|favicon.ico|.*\\.(png|jpg|jpeg|gif|svg|ico|webp|woff|woff2|ttf|eot)$).*)',
+    '/((?!api|_next/static|_next/image|favicon.ico|image4|background|.*\\.(png|jpg|jpeg|gif|svg|ico|webp|woff|woff2|ttf|eot)$).*)',
   ],
 }
