@@ -42,14 +42,15 @@ export default function GlobalGate() {
     return (
         <div className="min-h-screen flex flex-col items-center justify-center text-zinc-100 py-8" style={{ backgroundImage: "url('/background2.png')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
             {/* Logo no topo */}
-            <div className="mb-8 flex justify-center">
+            {/* Logo no topo */}
+            <div className="mb-12 flex justify-center">
                 <img
                     src="/image4.png"
                     alt="Logo"
-                    width={250}
-                    height={250}
+                    width={300}
+                    height={300}
                     className="object-contain"
-                    style={{ maxWidth: '250px', maxHeight: '250px', width: 'auto', height: 'auto', display: 'block' }}
+                    style={{ maxWidth: '300px', maxHeight: '300px', width: 'auto', height: 'auto', display: 'block' }}
                     loading="eager"
                 />
             </div>
