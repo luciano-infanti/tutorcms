@@ -40,7 +40,7 @@ export default function GlobalGate() {
     }
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-zinc-950 text-zinc-100 py-8">
+        <div className="min-h-screen flex flex-col items-center justify-center text-zinc-100 py-8" style={{ backgroundImage: "url('/background2.png')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
             {/* Logo no topo */}
             <div className="mb-8 flex justify-center">
                 <img
