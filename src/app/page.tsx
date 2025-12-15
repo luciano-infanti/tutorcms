@@ -53,7 +53,7 @@ export default function GlobalGate() {
                     loading="eager"
                 />
             </div>
-            
+
             <div className="max-w-md w-full p-8 bg-zinc-900 rounded-xl border border-zinc-800">
                 <div className="flex flex-col items-center mb-8">
                     <div className="p-3 bg-indigo-500/10 rounded-full mb-4">
