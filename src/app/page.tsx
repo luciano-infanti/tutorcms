@@ -48,10 +48,10 @@ export default function GlobalGate() {
                 <motion.img
                     src="/image4.png"
                     alt="Logo"
-                    width={300}
-                    height={300}
+                    width={350}
+                    height={350}
                     className="object-contain"
-                    style={{ maxWidth: '300px', maxHeight: '300px', width: 'auto', height: 'auto', display: 'block' }}
+                    style={{ maxWidth: '350px', maxHeight: '350px', width: 'auto', height: 'auto', display: 'block' }}
                     loading="eager"
                     animate={{
                         y: [0, -20, 0],
