@@ -44,9 +44,9 @@ export function TopNavigation() {
                     {/* Logo Area */}
                     <Link href="/dashboard" className="flex items-center gap-3 cursor-pointer group">
                         <img
-                            src="https://www.tibiawiki.com.br/images/9/94/The_Holy_Tible.gif"
+                            src="https://wiki.rubinot.com/brand/logo.webp
                             alt="RubinOT"
-                            className="w-8 h-8 object-contain group-hover:scale-105 transition-transform cursor-pointer"
+                        className="w-8 h-8 object-contain group-hover:scale-105 transition-transform cursor-pointer"
                         />
                         <div className="flex flex-col">
                             <span className="font-semibold text-lg leading-none tracking-tight text-light-text dark:text-gemini-text">RubinOT</span>
