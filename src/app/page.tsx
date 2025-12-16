@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Lock } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 export default function GlobalGate() {
     const [password, setPassword] = useState('')
@@ -44,7 +45,7 @@ export default function GlobalGate() {
             {/* Logo no topo */}
             {/* Logo no topo */}
             <div className="mb-12 flex justify-center">
-                <img
+                <motion.img
                     src="/image4.png"
                     alt="Logo"
                     width={300}
@@ -52,6 +53,14 @@ export default function GlobalGate() {
                     className="object-contain"
                     style={{ maxWidth: '300px', maxHeight: '300px', width: 'auto', height: 'auto', display: 'block' }}
                     loading="eager"
+                    animate={{
+                        y: [0, -20, 0],
+                    }}
+                    transition={{
+                        duration: 4,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                    }}
                 />
             </div>
 
