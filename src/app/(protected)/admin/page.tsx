@@ -557,7 +557,9 @@ export default function AdminPage() {
                                                     <div className="flex items-center gap-2">
                                                         <p className="text-light-text dark:text-gemini-text font-medium">{user.email}</p>
                                                         {isProtected && (
-                                                            <ShieldAlert className="w-4 h-4 text-purple-500" title="Protected - CM Immunity" />
+                                                            <span title="Protected - CM Immunity">
+                                                                <ShieldAlert className="w-4 h-4 text-purple-500" />
+                                                            </span>
                                                         )}
                                                     </div>
                                                     <p className="text-sm text-light-subtext dark:text-gemini-subtext">
