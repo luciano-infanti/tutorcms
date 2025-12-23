@@ -13,7 +13,7 @@ export interface Database {
                 Row: {
                     id: string
                     email: string
-                    role: 'GM' | 'Senior Tutor' | 'Tutor'
+                    role: 'CM' | 'GM' | 'SeniorTutor' | 'Tutor' | 'Player'
                     character_name: string | null
                     server: string | null
                     avatar_url: string | null
@@ -23,7 +23,7 @@ export interface Database {
                 Insert: {
                     id: string
                     email: string
-                    role?: 'GM' | 'Senior Tutor' | 'Tutor'
+                    role?: 'CM' | 'GM' | 'SeniorTutor' | 'Tutor' | 'Player'
                     character_name?: string | null
                     server?: string | null
                     avatar_url?: string | null
@@ -32,7 +32,7 @@ export interface Database {
                 Update: {
                     id?: string
                     email?: string
-                    role?: 'GM' | 'Senior Tutor' | 'Tutor'
+                    role?: 'CM' | 'GM' | 'SeniorTutor' | 'Tutor' | 'Player'
                     character_name?: string | null
                     server?: string | null
                     avatar_url?: string | null

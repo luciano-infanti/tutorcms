@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { getServerSession } from '@/lib/auth'
 import { createClient } from '@supabase/supabase-js'
+import { hasPermission, canManageUser, UserRole } from '@/config/roles'
 
 const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -9,9 +10,10 @@ const supabase = createClient(
 
 export async function GET() {
     const session = await getServerSession()
-    const role = (session?.user as any)?.role
+    const actorRole = (session?.user as any)?.role as UserRole
 
-    if (role !== 'GM') {
+    // Only CM and GM can access user management
+    if (!hasPermission(actorRole, 'canViewAdminDashboard')) {
         return NextResponse.json({ error: 'Unauthorized' }, { status: 403 })
     }
 
@@ -31,14 +33,44 @@ export async function GET() {
 
 export async function PATCH(req: Request) {
     const session = await getServerSession()
-    const role = (session?.user as any)?.role
+    const actorRole = (session?.user as any)?.role as UserRole
 
-    if (role !== 'GM') {
+    // Only CM and GM can update users
+    if (!hasPermission(actorRole, 'canViewAdminDashboard')) {
         return NextResponse.json({ error: 'Unauthorized' }, { status: 403 })
     }
 
     try {
         const { userId, role: newRole, character_name, server } = await req.json()
+
+        // Fetch the target user to check their current role
+        const { data: targetUser, error: fetchError } = await supabase
+            .from('users')
+            .select('role')
+            .eq('id', userId)
+            .single()
+
+        if (fetchError || !targetUser) {
+            return NextResponse.json({ error: 'User not found' }, { status: 404 })
+        }
+
+        const targetRole = targetUser.role as UserRole
+
+        // Check if actor can manage this user (CM immunity rule)
+        if (!canManageUser(actorRole, targetRole)) {
+            return NextResponse.json(
+                { error: 'You do not have permission to modify this user' },
+                { status: 403 }
+            )
+        }
+
+        // Additional check: GM cannot promote someone to CM
+        if (actorRole === 'GM' && newRole === 'CM') {
+            return NextResponse.json(
+                { error: 'Only CMs can assign the CM role' },
+                { status: 403 }
+            )
+        }
 
         const { error } = await supabase
             .from('users')
@@ -55,9 +87,10 @@ export async function PATCH(req: Request) {
 
 export async function DELETE(req: Request) {
     const session = await getServerSession()
-    const role = (session?.user as any)?.role
+    const actorRole = (session?.user as any)?.role as UserRole
 
-    if (role !== 'GM') {
+    // Only CM and GM can delete users
+    if (!hasPermission(actorRole, 'canViewAdminDashboard')) {
         return NextResponse.json({ error: 'Unauthorized' }, { status: 403 })
     }
 
@@ -69,9 +102,27 @@ export async function DELETE(req: Request) {
             return NextResponse.json({ error: 'User ID required' }, { status: 400 })
         }
 
-        // Delete user from Supabase Auth (if using Supabase Auth) and public.users table
-        // Since we are using NextAuth with custom users table, we just delete from public.users
-        // If there are foreign key constraints (e.g. votes, suggestions), we might need to handle them or rely on cascade delete
+        // Fetch the target user to check their role
+        const { data: targetUser, error: fetchError } = await supabase
+            .from('users')
+            .select('role')
+            .eq('id', userId)
+            .single()
+
+        if (fetchError || !targetUser) {
+            return NextResponse.json({ error: 'User not found' }, { status: 404 })
+        }
+
+        const targetRole = targetUser.role as UserRole
+
+        // Check if actor can manage this user (CM immunity rule)
+        if (!canManageUser(actorRole, targetRole)) {
+            return NextResponse.json(
+                { error: 'You do not have permission to delete this user' },
+                { status: 403 }
+            )
+        }
+
         const { error } = await supabase
             .from('users')
             .delete()

@@ -3,9 +3,10 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useSession } from 'next-auth/react'
-import { LayoutDashboard, User, FileText, Shield, LogOut, Lightbulb, Scale, Info, Sparkles, ExternalLink } from 'lucide-react'
+import { LayoutDashboard, User, FileText, Shield, LogOut, Lightbulb, Scale, Info, Sparkles, ExternalLink, UserPlus } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { signOut } from 'next-auth/react'
+import { hasPermission, UserRole } from '@/config/roles'
 
 const navItems = [
     { name: 'FAQ Dashboard', href: '/dashboard', icon: LayoutDashboard },
@@ -16,12 +17,20 @@ const navItems = [
 ]
 
 const adminItem = { name: 'Admin Panel', href: '/admin', icon: Shield }
+const promoteItem = { name: 'Promote Players', href: '/promote', icon: UserPlus }
 
 export function Sidebar() {
     const pathname = usePathname()
     const { data: session } = useSession()
-    const userRole = (session?.user as any)?.role
-    const isAdmin = userRole === 'GM'
+    const userRole = (session?.user as any)?.role as UserRole
+
+    const canViewAdmin = hasPermission(userRole, 'canViewAdminDashboard')
+    const canPromote = hasPermission(userRole, 'canPromotePlayerToTutor')
+    const showStaffSection = canViewAdmin || canPromote
+
+    // #region agent log
+    fetch('http://127.0.0.1:7243/ingest/ba8503e3-de95-4237-bfb2-b8307e3469b5',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Sidebar.tsx:28',message:'Sidebar role check',data:{userRole,userRoleType:typeof userRole,userRoleLength:userRole?.length,canViewAdmin,canPromote,showStaffSection,sessionEmail:(session?.user as any)?.email},timestamp:Date.now(),sessionId:'debug-session',hypothesisId:'A,B'})}).catch(()=>{});
+    // #endregion
 
     return (
         <div className="w-64 h-screen bg-zinc-900 border-r border-zinc-800 flex flex-col">
@@ -52,21 +61,41 @@ export function Sidebar() {
                     )
                 })}
 
-                {isAdmin && (
+                {showStaffSection && (
                     <>
                         <div className="my-4 border-t border-zinc-800" />
-                        <Link
-                            href={adminItem.href}
-                            className={cn(
-                                "flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors",
-                                pathname === adminItem.href
-                                    ? "bg-red-500/10 text-red-400"
-                                    : "text-zinc-400 hover:bg-zinc-800 hover:text-zinc-100 cursor-pointer"
-                            )}
-                        >
-                            <Shield className="w-5 h-5" />
-                            {adminItem.name}
-                        </Link>
+                        
+                        {/* Admin Panel - CM and GM only */}
+                        {canViewAdmin && (
+                            <Link
+                                href={adminItem.href}
+                                className={cn(
+                                    "flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors",
+                                    pathname === adminItem.href
+                                        ? "bg-red-500/10 text-red-400"
+                                        : "text-zinc-400 hover:bg-zinc-800 hover:text-zinc-100 cursor-pointer"
+                                )}
+                            >
+                                <Shield className="w-5 h-5" />
+                                {adminItem.name}
+                            </Link>
+                        )}
+
+                        {/* Promote Players - SeniorTutor, GM, and CM */}
+                        {canPromote && (
+                            <Link
+                                href={promoteItem.href}
+                                className={cn(
+                                    "flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors",
+                                    pathname === promoteItem.href
+                                        ? "bg-green-500/10 text-green-400"
+                                        : "text-zinc-400 hover:bg-zinc-800 hover:text-zinc-100 cursor-pointer"
+                                )}
+                            >
+                                <UserPlus className="w-5 h-5" />
+                                {promoteItem.name}
+                            </Link>
+                        )}
                     </>
                 )}
             </nav>

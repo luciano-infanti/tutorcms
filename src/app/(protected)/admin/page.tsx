@@ -2,17 +2,20 @@
 
 import { useState, useEffect } from 'react'
 import { useSession } from 'next-auth/react'
-import { AlertCircle, Users, Flag, Edit, Trash2, Plus, Lightbulb, Check, X, Archive, Save, Tag } from 'lucide-react'
-import { hasPermission } from '@/config/roles'
+import { AlertCircle, Users, Flag, Edit, Trash2, Plus, Lightbulb, Check, X, Archive, Save, Tag, ShieldAlert } from 'lucide-react'
+import { hasPermission, canManageUser, UserRole } from '@/config/roles'
 
 import { CharacterCounter } from '@/components/ui/CharacterCounter'
 import { CustomDropdown } from '@/components/ui/CustomDropdown'
 import { SERVERS } from '@/config/constants'
 import { CategoriesTab } from '@/components/admin/CategoriesTab'
 
+// Available roles for the dropdown (CM can assign all, GM cannot assign CM)
+const ALL_ROLES: UserRole[] = ['CM', 'GM', 'SeniorTutor', 'Tutor', 'Player']
+
 export default function AdminPage() {
     const { data: session, status } = useSession()
-    const userRole = (session?.user as any)?.role || 'Tutor'
+    const userRole = ((session?.user as any)?.role || 'Player') as UserRole
 
     const [activeTab, setActiveTab] = useState<'reports' | 'questions' | 'users' | 'suggestions' | 'archived' | 'categories'>('reports')
 
@@ -35,6 +38,15 @@ export default function AdminPage() {
     // Suggestions state
     const [suggestions, setSuggestions] = useState<any[]>([])
     const [loadingSuggestions, setLoadingSuggestions] = useState(false)
+
+    // Get available roles based on current user's role
+    const getAvailableRoles = (): UserRole[] => {
+        if (userRole === 'CM') {
+            return ALL_ROLES
+        }
+        // GM cannot assign CM role
+        return ALL_ROLES.filter(r => r !== 'CM')
+    }
 
     // Load data based on active tab
     useEffect(() => {
@@ -67,7 +79,7 @@ export default function AdminPage() {
         )
     }
 
-    // Check GM permission
+    // Check admin permission (CM or GM only)
     if (!hasPermission(userRole, 'canViewAdminDashboard')) {
         return (
             <div className="flex items-center justify-center min-h-[60vh]">
@@ -182,7 +194,8 @@ export default function AdminPage() {
                 setEditingUser(null)
                 alert('User updated successfully!')
             } else {
-                alert('Failed to update user')
+                const data = await res.json()
+                alert(data.error || 'Failed to update user')
             }
         } catch (error) {
             console.error('Save user error:', error)
@@ -198,7 +211,8 @@ export default function AdminPage() {
                 setUsers(prev => prev.filter(u => u.id !== userId))
                 alert('User deleted!')
             } else {
-                alert('Failed to delete user')
+                const data = await res.json()
+                alert(data.error || 'Failed to delete user')
             }
         } catch (error) {
             console.error('Delete user error:', error)
@@ -237,6 +251,23 @@ export default function AdminPage() {
     const filteredSuggestions = suggestions.filter(s =>
         activeTab === 'archived' ? (s.status === 'rejected' || s.status === 'approved') : s.status === 'pending'
     )
+
+    // Get role badge styling
+    const getRoleBadgeStyle = (role: UserRole) => {
+        switch (role) {
+            case 'CM':
+                return 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400'
+            case 'GM':
+                return 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400'
+            case 'SeniorTutor':
+                return 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400'
+            case 'Tutor':
+                return 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400'
+            case 'Player':
+            default:
+                return 'bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300'
+        }
+    }
 
     return (
         <div className="space-y-8 pt-4 max-w-5xl mx-auto">
@@ -473,9 +504,9 @@ export default function AdminPage() {
                                             onChange={(e) => setEditingUser({ ...editingUser, role: e.target.value })}
                                             className="w-full px-4 py-2 bg-white dark:bg-gemini-surface border border-light-border dark:border-gemini-surfaceHighlight rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-light-text dark:text-gemini-text transition-all"
                                         >
-                                            <option value="Tutor">Tutor</option>
-                                            <option value="Senior Tutor">Senior Tutor</option>
-                                            <option value="GM">GM</option>
+                                            {getAvailableRoles().map(role => (
+                                                <option key={role} value={role}>{role}</option>
+                                            ))}
                                         </select>
                                     </div>
                                 </div>
@@ -500,54 +531,88 @@ export default function AdminPage() {
                             <p className="text-light-subtext dark:text-gemini-subtext">Loading...</p>
                         ) : (
                             <div className="space-y-3 max-h-[600px] overflow-y-auto pr-2 custom-scrollbar">
-                                {users.map(user => (
-                                    <div key={user.id} className="bg-gray-50 dark:bg-gemini-bg rounded-xl p-4 border border-light-border dark:border-gemini-surfaceHighlight flex items-center justify-between hover:shadow-sm transition-all group">
-                                        <div className="flex items-center gap-4">
-                                            {user.avatar_url ? (
-                                                <img src={user.avatar_url} alt="" className="w-10 h-10 rounded-full object-cover ring-2 ring-white dark:ring-gemini-surface" />
-                                            ) : (
-                                                <div className="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
-                                                    <Users className="w-5 h-5 text-gray-500 dark:text-gray-400" />
-                                                </div>
-                                            )}
-                                            <div>
-                                                <p className="text-light-text dark:text-gemini-text font-medium">{user.email}</p>
-                                                <p className="text-sm text-light-subtext dark:text-gemini-subtext">
-                                                    {user.character_name || 'No character'} • {user.server || 'No server'}
-                                                </p>
-                                                <p className="text-xs text-gray-400 dark:text-gray-500 mt-1">
-                                                    Last seen: {user.last_seen ? new Date(user.last_seen).toLocaleString() : 'Never'}
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div className="flex items-center gap-4">
-                                            <span className={`px-3 py-1 rounded-full text-xs font-semibold ${user.role === 'GM' ? 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400' :
-                                                user.role === 'Senior Tutor' ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400' :
-                                                    'bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300'
-                                                }`}>
-                                                {user.role}
-                                            </span>
+                                {users.map(user => {
+                                    const targetRole = user.role as UserRole
+                                    const canManage = canManageUser(userRole, targetRole)
+                                    const isProtected = !canManage && targetRole === 'CM'
 
-                                            {/* Action Buttons (Only visible to GMs, and page is GM-only anyway) */}
-                                            <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                                <button
-                                                    onClick={() => setEditingUser(user)}
-                                                    className="p-2 hover:bg-blue-100 dark:hover:bg-blue-900/30 rounded-lg text-blue-600 dark:text-blue-400 transition-colors"
-                                                    title="Edit User"
-                                                >
-                                                    <Edit className="w-4 h-4" />
-                                                </button>
-                                                <button
-                                                    onClick={() => deleteUser(user.id)}
-                                                    className="p-2 hover:bg-red-100 dark:hover:bg-red-900/30 rounded-lg text-red-600 dark:text-red-400 transition-colors"
-                                                    title="Delete User"
-                                                >
-                                                    <Trash2 className="w-4 h-4" />
-                                                </button>
+                                    return (
+                                        <div 
+                                            key={user.id} 
+                                            className={`bg-gray-50 dark:bg-gemini-bg rounded-xl p-4 border flex items-center justify-between hover:shadow-sm transition-all group ${
+                                                isProtected 
+                                                    ? 'border-purple-200 dark:border-purple-900/30 bg-purple-50/50 dark:bg-purple-900/10' 
+                                                    : 'border-light-border dark:border-gemini-surfaceHighlight'
+                                            }`}
+                                        >
+                                            <div className="flex items-center gap-4">
+                                                {user.avatar_url ? (
+                                                    <img src={user.avatar_url} alt="" className="w-10 h-10 rounded-full object-cover ring-2 ring-white dark:ring-gemini-surface" />
+                                                ) : (
+                                                    <div className="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                                                        <Users className="w-5 h-5 text-gray-500 dark:text-gray-400" />
+                                                    </div>
+                                                )}
+                                                <div>
+                                                    <div className="flex items-center gap-2">
+                                                        <p className="text-light-text dark:text-gemini-text font-medium">{user.email}</p>
+                                                        {isProtected && (
+                                                            <ShieldAlert className="w-4 h-4 text-purple-500" title="Protected - CM Immunity" />
+                                                        )}
+                                                    </div>
+                                                    <p className="text-sm text-light-subtext dark:text-gemini-subtext">
+                                                        {user.character_name || 'No character'} • {user.server || 'No server'}
+                                                    </p>
+                                                    <p className="text-xs text-gray-400 dark:text-gray-500 mt-1">
+                                                        Last seen: {user.last_seen ? new Date(user.last_seen).toLocaleString() : 'Never'}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div className="flex items-center gap-4">
+                                                <span className={`px-3 py-1 rounded-full text-xs font-semibold ${getRoleBadgeStyle(targetRole)}`}>
+                                                    {user.role}
+                                                </span>
+
+                                                {/* Action Buttons - Only show if user can manage this target */}
+                                                {canManage ? (
+                                                    <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                        <button
+                                                            onClick={() => setEditingUser(user)}
+                                                            className="p-2 hover:bg-blue-100 dark:hover:bg-blue-900/30 rounded-lg text-blue-600 dark:text-blue-400 transition-colors"
+                                                            title="Edit User"
+                                                        >
+                                                            <Edit className="w-4 h-4" />
+                                                        </button>
+                                                        <button
+                                                            onClick={() => deleteUser(user.id)}
+                                                            className="p-2 hover:bg-red-100 dark:hover:bg-red-900/30 rounded-lg text-red-600 dark:text-red-400 transition-colors"
+                                                            title="Delete User"
+                                                        >
+                                                            <Trash2 className="w-4 h-4" />
+                                                        </button>
+                                                    </div>
+                                                ) : (
+                                                    <div className="flex gap-2 opacity-50">
+                                                        <button
+                                                            disabled
+                                                            className="p-2 rounded-lg text-gray-400 cursor-not-allowed"
+                                                            title="Cannot edit - Protected user"
+                                                        >
+                                                            <Edit className="w-4 h-4" />
+                                                        </button>
+                                                        <button
+                                                            disabled
+                                                            className="p-2 rounded-lg text-gray-400 cursor-not-allowed"
+                                                            title="Cannot delete - Protected user"
+                                                        >
+                                                            <Trash2 className="w-4 h-4" />
+                                                        </button>
+                                                    </div>
+                                                )}
                                             </div>
                                         </div>
-                                    </div>
-                                ))}
+                                    )
+                                })}
                             </div>
                         )}
                     </div>

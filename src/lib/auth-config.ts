@@ -81,22 +81,41 @@ export const authOptions: NextAuthOptions = {
             }
         },
         async jwt({ token, user }) {
-            if (user) {
-                // Fetch the latest role from the database to ensure the token is up to date
-                // This allows role changes in the DB to be reflected in the session upon sign in
+            // Always fetch the latest role from the database
+            // This ensures role changes are reflected immediately
+            const email = user?.email || token?.email as string
+            
+            // #region agent log
+            const fs = require('fs');
+            const logEntry = {location:'auth-config.ts:jwt',message:'JWT callback',data:{hasUser:!!user,userEmail:user?.email,tokenEmail:token?.email,resolvedEmail:email},timestamp:Date.now(),sessionId:'debug-session',hypothesisId:'C'};
+            try { fs.appendFileSync('c:\\Users\\lucia\\tutorcms\\.cursor\\debug.log', JSON.stringify(logEntry) + '\n'); } catch(e) {}
+            // #endregion
+            
+            if (email) {
                 const { data: dbUser } = await supabase
                     .from('users')
                     .select('role')
-                    .eq('email', user.email)
+                    .eq('email', email)
                     .single()
+
+                // #region agent log
+                const logEntry2 = {location:'auth-config.ts:jwt-role',message:'JWT role fetch',data:{email,dbUserRole:dbUser?.role,dbUserRoleType:typeof dbUser?.role},timestamp:Date.now(),sessionId:'debug-session',hypothesisId:'C'};
+                try { fs.appendFileSync('c:\\Users\\lucia\\tutorcms\\.cursor\\debug.log', JSON.stringify(logEntry2) + '\n'); } catch(e) {}
+                // #endregion
 
                 if (dbUser) {
                     token.role = dbUser.role
                 } else {
-                    // Fallback to config role only if DB fetch fails (shouldn't happen for valid users)
-                    token.role = getUserRole(user.email)
+                    // Fallback to config role only if DB fetch fails
+                    token.role = getUserRole(email)
                 }
             }
+            
+            // Store email in token for subsequent calls
+            if (user?.email) {
+                token.email = user.email
+            }
+            
             return token
         },
         async session({ session, token }) {
@@ -110,3 +129,4 @@ export const authOptions: NextAuthOptions = {
         signIn: '/',
     },
 }
+

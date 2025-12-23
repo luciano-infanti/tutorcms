@@ -4,16 +4,18 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useSession, signOut } from 'next-auth/react'
 import { useTheme } from '@/components/providers/ThemeProvider'
-import { Sun, Moon, LogOut, Shield, User, Scale, Info, Sparkles, ExternalLink } from 'lucide-react'
+import { Sun, Moon, LogOut, Shield, User, Scale, Info, Sparkles, ExternalLink, UserPlus } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
+import { hasPermission, UserRole } from '@/config/roles'
 
 export function TopNavigation() {
     const pathname = usePathname()
     const { data: session } = useSession()
     const { theme, toggleTheme } = useTheme()
-    const userRole = (session?.user as any)?.role
-    const isAdmin = userRole === 'GM'
+    const userRole = ((session?.user as any)?.role || 'Player') as UserRole
+    const canViewAdmin = hasPermission(userRole, 'canViewAdminDashboard')
+    const canPromote = hasPermission(userRole, 'canPromotePlayerToTutor')
 
     const [userInfo, setUserInfo] = useState<{ character_name: string | null, server: string | null }>({ character_name: null, server: null })
     const [showDropdown, setShowDropdown] = useState(false)
@@ -93,7 +95,8 @@ export function TopNavigation() {
                             Extras
                         </Link>
 
-                        {isAdmin && (
+                        {/* Admin Panel - CM and GM only */}
+                        {canViewAdmin && (
                             <Link
                                 href="/admin"
                                 className={`px-4 py-2 rounded-full text-sm font-medium transition-colors flex items-center gap-2 ${pathname === '/admin'
@@ -103,6 +106,20 @@ export function TopNavigation() {
                             >
                                 <Shield className="w-4 h-4" />
                                 Admin
+                            </Link>
+                        )}
+
+                        {/* Promote Players - SeniorTutor, GM, CM (but not shown if already has Admin access to avoid duplication for CM/GM) */}
+                        {canPromote && !canViewAdmin && (
+                            <Link
+                                href="/promote"
+                                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors flex items-center gap-2 ${pathname === '/promote'
+                                    ? 'bg-white dark:bg-gemini-surface text-green-500 dark:text-green-400 border border-light-border dark:border-gemini-border'
+                                    : 'text-light-subtext dark:text-gemini-subtext hover:bg-gray-200 dark:hover:bg-gemini-surfaceHighlight cursor-pointer'
+                                    }`}
+                            >
+                                <UserPlus className="w-4 h-4" />
+                                Promote
                             </Link>
                         )}
                     </div>

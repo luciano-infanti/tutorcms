@@ -59,10 +59,13 @@ export default function DashboardPage() {
         setSnackbar({ message, type, isOpen: true })
     }
 
-    const userRole = (session?.user as any)?.role as UserRole
+    const userRole = ((session?.user as any)?.role || 'Player') as UserRole
     const canAdd = hasPermission(userRole, 'canCreateQuestions')
     const canEdit = hasPermission(userRole, 'canEditQuestions')
     const canDelete = hasPermission(userRole, 'canDeleteQuestions')
+    const canVote = hasPermission(userRole, 'canVote')
+    const canReport = hasPermission(userRole, 'canReport')
+    const canSuggest = hasPermission(userRole, 'canSuggest')
 
     useEffect(() => {
         const fetchData = async () => {
@@ -336,6 +339,7 @@ export default function DashboardPage() {
 
                                                 {/* Actions - Reserved Space, Opacity Transition */}
                                                 <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex-shrink-0">
+                                                    {/* Copy is always available */}
                                                     <button
                                                         onClick={() => handleCopy(q.answer_text)}
                                                         className="p-1.5 rounded-lg hover:bg-gray-200 dark:hover:bg-white/10 text-gray-400 dark:text-gray-500 hover:text-blue-500 dark:hover:text-blue-400 transition-colors cursor-pointer"
@@ -344,37 +348,48 @@ export default function DashboardPage() {
                                                         <Copy className="w-4 h-4" />
                                                     </button>
 
-                                                    <button
-                                                        onClick={() => {
-                                                            setSelectedQuestion({ id: q.id, text: q.question_text })
-                                                            setShowSuggestionModal(true)
-                                                        }}
-                                                        className="p-1.5 rounded-lg hover:bg-gray-200 dark:hover:bg-white/10 text-gray-400 dark:text-gray-500 hover:text-blue-500 dark:hover:text-blue-400 transition-colors cursor-pointer"
-                                                        title="Suggest Edit"
-                                                    >
-                                                        <Lightbulb className="w-4 h-4" />
-                                                    </button>
-                                                    <button
-                                                        onClick={() => setReportingQuestion({ id: q.id, text: q.question_text })}
-                                                        className="p-1.5 rounded-lg hover:bg-gray-200 dark:hover:bg-white/10 text-gray-400 dark:text-gray-500 hover:text-red-500 dark:hover:text-red-400 transition-colors cursor-pointer"
-                                                        title="Report"
-                                                    >
-                                                        <Flag className="w-4 h-4" />
-                                                    </button>
-                                                    <button
-                                                        onClick={() => handleVote(q.id)}
-                                                        className={cn(
-                                                            "p-1.5 rounded-lg transition-all flex items-center gap-1",
-                                                            isVoted
-                                                                ? "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 opacity-100"
-                                                                : "hover:bg-gray-200 dark:hover:bg-white/10 text-gray-400 dark:text-gray-500 hover:text-green-600 dark:hover:text-green-400 cursor-pointer",
-                                                            !isVoted && score <= 1 && "opacity-0 group-hover:opacity-100"
-                                                        )}
-                                                        title={isVoted ? "Unvote" : "Upvote"}
-                                                    >
-                                                        <ThumbsUp className={cn("w-4 h-4", isVoted && "fill-current")} />
-                                                        <span className="text-xs font-bold">{score}</span>
-                                                    </button>
+                                                    {/* Suggest - only for Tutor+ */}
+                                                    {canSuggest && (
+                                                        <button
+                                                            onClick={() => {
+                                                                setSelectedQuestion({ id: q.id, text: q.question_text })
+                                                                setShowSuggestionModal(true)
+                                                            }}
+                                                            className="p-1.5 rounded-lg hover:bg-gray-200 dark:hover:bg-white/10 text-gray-400 dark:text-gray-500 hover:text-blue-500 dark:hover:text-blue-400 transition-colors cursor-pointer"
+                                                            title="Suggest Edit"
+                                                        >
+                                                            <Lightbulb className="w-4 h-4" />
+                                                        </button>
+                                                    )}
+
+                                                    {/* Report - only for Tutor+ */}
+                                                    {canReport && (
+                                                        <button
+                                                            onClick={() => setReportingQuestion({ id: q.id, text: q.question_text })}
+                                                            className="p-1.5 rounded-lg hover:bg-gray-200 dark:hover:bg-white/10 text-gray-400 dark:text-gray-500 hover:text-red-500 dark:hover:text-red-400 transition-colors cursor-pointer"
+                                                            title="Report"
+                                                        >
+                                                            <Flag className="w-4 h-4" />
+                                                        </button>
+                                                    )}
+
+                                                    {/* Vote - only for Tutor+ */}
+                                                    {canVote && (
+                                                        <button
+                                                            onClick={() => handleVote(q.id)}
+                                                            className={cn(
+                                                                "p-1.5 rounded-lg transition-all flex items-center gap-1",
+                                                                isVoted
+                                                                    ? "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 opacity-100"
+                                                                    : "hover:bg-gray-200 dark:hover:bg-white/10 text-gray-400 dark:text-gray-500 hover:text-green-600 dark:hover:text-green-400 cursor-pointer",
+                                                                !isVoted && score <= 1 && "opacity-0 group-hover:opacity-100"
+                                                            )}
+                                                            title={isVoted ? "Unvote" : "Upvote"}
+                                                        >
+                                                            <ThumbsUp className={cn("w-4 h-4", isVoted && "fill-current")} />
+                                                            <span className="text-xs font-bold">{score}</span>
+                                                        </button>
+                                                    )}
 
                                                     {(canEdit || canDelete) && (
                                                         <>
@@ -423,7 +438,7 @@ export default function DashboardPage() {
                                 <Plus className="w-5 h-5" />
                                 Create Question
                             </button>
-                        ) : (
+                        ) : canSuggest ? (
                             <button
                                 onClick={() => {
                                     setSelectedQuestion(null)
@@ -434,7 +449,7 @@ export default function DashboardPage() {
                                 <Lightbulb className="w-5 h-5 text-yellow-500" />
                                 Suggest Question
                             </button>
-                        )}
+                        ) : null}
                     </div>
                 )}
             </div>
